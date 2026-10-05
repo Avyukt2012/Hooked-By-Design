@@ -1,0 +1,603 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Hook Playbook — Hooked by Design</title>
+<meta name="description" content="The 9 design tricks Instagram and YouTube use to hold your attention, explained simply, with demos you can try and the three-question test for any feature.">
+<meta property="og:title" content="The Hook Playbook: 9 tricks that keep you on the app">
+<meta property="og:description" content="The 9 design tricks Instagram and YouTube use to hold your attention, explained simply, with demos you can try and the three-question test for any feature.">
+<meta property="og:type" content="website">
+<!-- After publishing, change this to the full address, e.g. https://YOUR-NAME.github.io/hooked-by-design/assets/img/social-card.png -->
+<meta property="og:image" content="assets/img/social-card.png">
+<meta name="theme-color" content="#f1f2ec" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121316" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/bricolage-grotesque.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/atkinson-hyperlegible-next.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/style.css">
+<script>document.documentElement.classList.replace('no-js', 'js');</script>
+<script src="assets/js/site.js" defer></script>
+<script src="assets/js/demos.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-hook" viewBox="0 0 24 24"><path d="M7 1.5v3"/><circle cx="7" cy="6.2" r="1.7"/><path d="M7 7.9v6.6a5 5 0 0 0 10 0V10"/><path d="M17 10l-3 2.8"/></symbol>
+  <symbol id="i-dice" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="4"/><circle cx="8.5" cy="8.5" r="1.4" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/><circle cx="15.5" cy="15.5" r="1.4" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-infinity" viewBox="0 0 24 24"><path d="M12 12c-1.8-2.4-3.4-4-5.5-4a4 4 0 0 0 0 8c2.1 0 3.7-1.6 5.5-4zm0 0c1.8 2.4 3.4 4 5.5 4a4 4 0 0 0 0-8c-2.1 0-3.7 1.6-5.5 4z"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-8-4.9-8-10.6C4 6.9 5.9 5 8.2 5c1.6 0 3 .9 3.8 2.3C12.8 5.9 14.2 5 15.8 5 18.1 5 20 6.9 20 9.4 20 15.1 12 20 12 20z"/></symbol>
+  <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1.3" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6.5 16.5v-5.2a5.5 5.5 0 0 1 11 0v5.2l1.6 2H4.9z"/><path d="M10 21h4"/></symbol>
+  <symbol id="i-hourglass" viewBox="0 0 24 24"><path d="M6.5 3.5h11M6.5 20.5h11M8 3.5c0 4.4 8 4.6 8 8.5s-8 4.1-8 8.5M16 3.5c0 4.4-8 4.6-8 8.5s8 4.1 8 8.5"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3.5l8.5 4.6L12 12.7 3.5 8.1z"/><path d="M3.5 12.2l8.5 4.6 8.5-4.6"/><path d="M3.5 16.3l8.5 4.6 8.5-4.6"/></symbol>
+  <symbol id="i-ring" viewBox="0 0 24 24"><path d="M12 3.5A8.5 8.5 0 1 1 3.5 12"/><circle cx="3.5" cy="12" r="1.6" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.5 12s3.5-6.5 9.5-6.5 9.5 6.5 9.5 6.5-3.5 6.5-9.5 6.5S2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-arrow-down" viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></symbol>
+  <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M19.5 12a7.5 7.5 0 1 1-2.2-5.3"/><path d="M19.5 4.5v4h-4"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10-6.5z"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24"><path d="M9 5.5v13M15 5.5v13"/></symbol>
+  <symbol id="i-comment" viewBox="0 0 24 24"><path d="M4.5 5.5h15V16H11l-4.5 3.5V16h-2z"/></symbol>
+  <symbol id="i-share" viewBox="0 0 24 24"><circle cx="6.5" cy="12" r="2.5"/><circle cx="17.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/><path d="M8.7 10.9l6.6-3.3M8.7 13.1l6.6 3.3"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3.5" y="5.5" width="17" height="13" rx="3"/><path d="M4.5 7.5l7.5 5.5 7.5-5.5"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M4 11.2L12 4.5l8 6.7V20h-5.2v-5.5H9.2V20H4z"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></symbol>
+  <symbol id="i-film" viewBox="0 0 24 24"><rect x="5" y="3.5" width="14" height="17" rx="3"/><path d="M10.2 9.2v5.6l4.4-2.8z"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.6"/><path d="M5 20c.8-3.8 3.6-5.6 7-5.6s6.2 1.8 7 5.6"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M19.5 14.6A7.6 7.6 0 1 1 9.4 4.5a6.1 6.1 0 0 0 10.1 10.1z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3.8l2.5 5.2 5.7.8-4.1 4 1 5.6L12 16.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></symbol>
+  <symbol id="i-tag" viewBox="0 0 24 24"><path d="M3.5 12.5v-8h8l9 9-8 8z"/><circle cx="8" cy="9" r="1.4" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-empty" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" stroke-dasharray="2.5 3"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><rect x="7" y="3" width="10" height="18" rx="2.6"/><path d="M11 17.5h2"/></symbol>
+  <symbol id="i-ban" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M6 6l12 12"/></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></symbol>
+  <symbol id="i-tv" viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="12.5" rx="2.5"/><path d="M8 20.5h8"/><path d="M10.4 8.3v5.4l4.3-2.7z"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3.5 20.5h17M6.5 20.5V11M11.5 20.5V5M16.5 20.5v-7"/></symbol>
+  <symbol id="i-flag" viewBox="0 0 24 24"><path d="M5.5 21V4M5.5 4.5h11l-2 4 2 4h-11"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M4.5 5.5c2.5-1 5-1 7.5.8 2.5-1.8 5-1.8 7.5-.8v13c-2.5-1-5-1-7.5.8-2.5-1.8-5-1.8-7.5-.8z"/><path d="M12 6.3v13"/></symbol>
+  <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></symbol>
+  <symbol id="i-people" viewBox="0 0 24 24"><circle cx="9" cy="8.5" r="3.2"/><path d="M3.5 19.5c.6-3.4 2.8-5 5.5-5s4.9 1.6 5.5 5"/><circle cx="16.5" cy="9.5" r="2.6"/><path d="M15.5 14.6c2.6 0 4.4 1.4 5 4.4"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v5.5M12 7.6v.2"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol>
+  <symbol id="i-ball" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 8l3.6 2.6-1.4 4.3H9.8l-1.4-4.3z"/><path d="M12 3.5V8M15.6 10.6l4.5-1.4M14.2 14.9l2.7 3.8M9.8 14.9l-2.7 3.8M8.4 10.6L3.9 9.2"/></symbol>
+  <symbol id="i-pad" viewBox="0 0 24 24"><path d="M7 8h10a4 4 0 0 1 3.9 4.9l-.8 3.4a2.5 2.5 0 0 1-4.2 1.2L14 15.5h-4l-1.9 2a2.5 2.5 0 0 1-4.2-1.2l-.8-3.4A4 4 0 0 1 7 8z"/><path d="M8 11v3M6.5 12.5h3"/><circle cx="16" cy="12.5" r="1.1" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-pan" viewBox="0 0 24 24"><circle cx="10" cy="13" r="6"/><path d="M16 13h5.5"/><path d="M8 6.5c0-1.2 1-1.6 1-2.8M11.5 6.5c0-1.2 1-1.6 1-2.8"/></symbol>
+  <symbol id="i-note" viewBox="0 0 24 24"><path d="M9 17.5V6l10-2v11.5"/><circle cx="6.5" cy="17.5" r="2.5"/><circle cx="16.5" cy="15.5" r="2.5"/></symbol>
+  <symbol id="i-flask" viewBox="0 0 24 24"><path d="M9 3.5h6M10.2 3.5v6.2L4.8 19.2a1 1 0 0 0 .9 1.3h12.6a1 1 0 0 0 .9-1.3l-5.4-9.5V3.5"/><path d="M7.5 15h9"/></symbol>
+  <symbol id="i-smile" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M8.5 14c1 1.5 2.2 2.2 3.5 2.2s2.5-.7 3.5-2.2"/><path d="M9 9.5v.6M15 9.5v.6"/></symbol>
+</svg>
+<header class="site-header">
+  <div class="wrap header-bar">
+    <a class="brand" href="index.html">
+      <span class="brand-mark"><svg class="icon" aria-hidden="true"><use href="#i-hook"/></svg></span>
+      <span>Hooked by Design</span>
+    </a>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-button>
+      <svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg><span data-menu-label>Menu</span>
+    </button>
+    <nav id="site-nav" class="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="index.html">Home <span class="nav-hint">Quiz and our headline finding</span></a></li>
+        <li><a href="playbook.html" aria-current="page">Hook Playbook <span class="nav-hint">9 tricks, with demos</span></a></li>
+        <li><a href="instagram.html">Instagram <span class="nav-hint">Settings, step by step</span></a></li>
+        <li><a href="youtube.html">YouTube <span class="nav-hint">Settings and the algorithm</span></a></li>
+        <li><a href="survey.html">Our Survey <span class="nav-hint">21 students, in charts</span></a></li>
+        <li><a href="challenge.html">7-Day Challenge <span class="nav-hint">One change a day</span></a></li>
+        <li><a href="about.html">About &amp; Sources <span class="nav-hint">Who we are, where facts come from</span></a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="eyebrow">The Hook Playbook</p>
+      <h1>9 tricks that keep you on the app</h1>
+      <p class="lede">None of these are secret, and falling for them doesn’t mean you’re weak-willed. They use ordinary human psychology — the same pull as a cliffhanger. Apps just use all of them at once, all day.</p>
+      <nav aria-label="On this page" style="margin-top: 24px">
+        <ul class="chips jump">
+          <li><a class="chip" href="#variable-rewards"><span class="chip-num">01</span>Variable rewards</a></li>
+          <li><a class="chip" href="#no-stopping-cues"><span class="chip-num">02</span>No stopping cues</a></li>
+          <li><a class="chip" href="#social-validation"><span class="chip-num">03</span>Social validation</a></li>
+          <li><a class="chip" href="#personalisation"><span class="chip-num">04</span>Personalisation</a></li>
+          <li><a class="chip" href="#triggers"><span class="chip-num">05</span>Triggers</a></li>
+          <li><a class="chip" href="#fomo"><span class="chip-num">06</span>FOMO and scarcity</a></li>
+          <li><a class="chip" href="#loss-aversion"><span class="chip-num">07</span>Loss aversion</a></li>
+          <li><a class="chip" href="#unfinished-tasks"><span class="chip-num">08</span>Unfinished tasks</a></li>
+          <li><a class="chip" href="#social-pressure"><span class="chip-num">09</span>Social pressure</a></li>
+          <li><a class="chip" href="#demos"><span class="chip-num"><svg class="icon icon-sm" aria-hidden="true"><use href="#i-play"/></svg></span>The 4 demos</a></li>
+          <li><a class="chip" href="#three-questions"><span class="chip-num">?</span>The three-question test</a></li>
+        </ul>
+      </nav>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="why-h">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">First: why do apps do this?</p>
+        <h2 id="why-h">Your attention pays the bills</h2>
+        <p class="lede">Instagram and YouTube are free to use because they make most of their money from ads. More time on the app means more ads seen — and more information about what keeps you watching.</p>
+      </div>
+      <ol class="loop" aria-label="The Hook Model, a loop in four steps">
+        <li>1. Trigger <span>A buzz, or plain habit, gets you to open the app.</span></li>
+        <li>2. Action <span>You scroll, tap or swipe. It takes almost no effort.</span></li>
+        <li>3. Variable reward <span>Sometimes something great, sometimes nothing. You can’t tell which.</span></li>
+        <li>4. Investment <span>You like, post, follow or subscribe — so next time there’s more to come back for.</span></li>
+      </ol>
+      <p class="small muted" style="margin-top: 14px">This loop is the Hook Model, from Nir Eyal’s book for app designers, <cite>Hooked</cite>. Then it starts again.</p>
+    </div>
+  </section>
+
+  <section class="section" id="tricks" aria-labelledby="tricks-h">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">The 9 tricks</p>
+        <h2 id="tricks-h">Spot them, name them</h2>
+        <p class="lede">Each one comes with a real example from Instagram or YouTube, why it works, and your move.</p>
+      </div>
+
+      <div class="hooks">
+
+        <article class="hook card" id="variable-rewards" aria-labelledby="h-vr">
+          <div class="hook-head">
+            <span class="hook-num" aria-hidden="true">01</span>
+            <span class="hook-badge"><svg class="icon" aria-hidden="true"><use href="#i-dice"/></svg></span>
+          </div>
+          <h3 id="h-vr">Variable rewards</h3>
+          <p class="hook-plain">You never know what the next swipe will bring — something boring, or something great. Because the good stuff turns up at random, you keep checking. Slot machines work the same way.</p>
+          <dl class="hook-meta">
+            <div><dt>On Instagram</dt><dd>The feed, Reels, pull-to-refresh</dd></div>
+            <div><dt>On YouTube</dt><dd>Shorts, pull-to-refresh on Home</dd></div>
+            <div><dt>Why it works</dt><dd>Rewards we can’t predict keep us checking more than rewards we can. Nir Eyal’s Hook Model calls them “variable rewards”.</dd></div>
+            <div><dt>Your move</dt><dd>Give the slot machine a closing time: a <a href="youtube.html#shorts">Shorts feed limit</a> or an <a href="instagram.html#feed">Instagram daily limit</a>.</dd></div>
+          </dl>
+          <p class="hook-links"><a class="text-link" href="#demo-refresh">Try the pull-to-refresh demo <svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow-down"/></svg></a></p>
+        </article>
+
+        <article class="hook card" id="no-stopping-cues" aria-labelledby="h-nsc">
+          <div class="hook-head">
+            <span class="hook-num" aria-hidden="true">02</span>
+            <span class="hook-badge"><svg class="icon" aria-hidden="true"><use href="#i-infinity"/></svg></span>
+          </div>
+          <h3 id="h-nsc">No stopping cues</h3>
+          <p class="hook-plain">Books have chapters. Episodes end. Natural endings give you a moment to decide whether to carry on. Apps remove them: the feed never runs out, and the next video starts by itself.</p>
+          <dl class="hook-meta">
+            <div><dt>On Instagram</dt><dd>Infinite scroll, Reels</dd></div>
+            <div><dt>On YouTube</dt><dd>Shorts, autoplay</dd></div>
+            <div><dt>Why it works</dt><dd>Without an ending, stopping becomes a decision you have to make on your own, again and again. In a 2025 study, switching off Netflix’s autoplay cut how long people watched, per day and per sitting (Schaffner and others).</dd></div>
+            <div><dt>Your move</dt><dd>Put a stopping point back: <a href="youtube.html#autoplay">turn off autoplay</a> and set limits.</dd></div>
+          </dl>
+          <p class="hook-links">
+            <a class="text-link" href="#demo-feed">Try the endless feed <svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow-down"/></svg></a>
+            <a class="text-link" href="#demo-autoplay">Beat the autoplay <svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow-down"/></svg></a>
+          </p>
+        </article>
+
+        <article class="hook card" id="social-validation" aria-labelledby="h-sv">
+          <div class="hook-head">
+            <span class="hook-num" aria-hidden="true">03</span>
+            <span class="hook-badge"><svg class="icon" aria-hidden="true"><use href="#i-heart"/></svg></span>
+          </div>
+          <h3 id="h-sv">Social validation</h3>
+          <p class="hook-plain">Likes, views, followers and comments work like little scores. Getting them feels good, so we post, check, and post again.</p>
+          <dl class="hook-meta">
+            <div><dt>On Instagram</dt><dd>Likes, view counts, followers, comments</dd></div>
+            <div><dt>On YouTube</dt><dd>Views, likes, subscriber counts, comments</dd></div>
+            <div><dt>Why it works</dt><dd>In a brain-scan study, teens looked at photos in an Instagram-style app. When a photo seemed to have lots of likes, reward areas of their brains were more active — and they were more likely to like it too (Sherman and others, 2016).</dd></div>
+            <div><dt>Your move</dt><dd><a href="instagram.html#likes">Hide like counts</a> — on other people’s posts and your own.</dd></div>
+          </dl>
+          <p class="hook-links"><a class="text-link" href="#demo-likes">Watch likes trickle in <svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow-down"/></svg></a></p>
+        </article>
+
+        <article class="hook card" id="personalisation" aria-labelledby="h-pers">
+          <div class="hook-head">
+            <span class="hook-num" aria-hidden="true">04</span>
+            <span class="hook-badge"><svg class="icon" aria-hidden="true"><use href="#i-target"/></svg></span>
+          </div>
+          <h3 id="h-pers">Personalisation</h3>
+          <p class="hook-plain">The app notices what you watch, rewatch, like or skip, and serves more of whatever keeps you there. The better it knows you, the harder it is to put down.</p>
+          <dl class="hook-meta">
+            <div><dt>On Instagram</dt><dd>Explore, the Reels feed</dd></div>
+            <div><dt>On YouTube</dt><dd>Home, Up next</dd></div>
+            <div><dt>Why it works</dt><dd>It’s very good at predicting what you’ll watch next. In 2018, YouTube said about 70% of watch time came from its recommendations.</dd></div>
+            <div><dt>Your move</dt><dd><a href="instagram.html#recommendations">Reset your Instagram suggestions</a> or <a href="youtube.html#recommendations">pause your YouTube watch history</a>. Curious how it works? <a href="youtube.html#algorithm">The algorithm, explained</a>.</dd></div>
+          </dl>
+        </article>
+
+        <article class="hook card" id="triggers" aria-labelledby="h-trig">
+          <div class="hook-head">
+            <span class="hook-num" aria-hidden="true">05</span>
+            <span class="hook-badge"><svg class="icon" aria-hidden="true"><use href="#i-bell"/></svg></span>
+          </div>
+          <h3 id="h-trig">Triggers</h3>
+          <p class="hook-plain">A buzz, a badge or a red dot is a tap on the shoulder. It pulls you back into the app — and once you’re in, it’s easy to stay.</p>
+          <dl class="hook-meta">
+            <div><dt>On Instagram</dt><dd>Notifications, red badges</dd></div>
+            <div><dt>On YouTube</dt><dd>The bell, notifications</dd></div>
+            <div><dt>Why it works</dt><dd>The Hook Model starts with a trigger: the cue that gets you to open the app. In our survey, 16 of 21 students had opened an app because of a notification and stayed longer than they meant to.</dd></div>
+            <div><dt>Your move</dt><dd>Mute app notifications, keep messages from people: <a href="instagram.html#notifications">Instagram</a>, <a href="youtube.html#notifications">YouTube</a>.</dd></div>
+          </dl>
+        </article>
+
+        <article class="hook card" id="fomo" aria-labelledby="h-fomo">
+          <div class="hook-head">
+            <span class="hook-num" aria-hidden="true">06</span>
+            <span class="hook-badge"><svg class="icon" aria-hidden="true"><use href="#i-hourglass"/></svg></span>
+          </div>
+          <h3 id="h-fomo">FOMO and scarcity</h3>
+          <p class="hook-plain">Things that vanish make you check now. Stories disappear after 24 hours, and a live only happens once. Wait, and you miss it.</p>
+          <dl class="hook-meta">
+            <div><dt>On Instagram</dt><dd>24-hour Stories, live alerts</dd></div>
+            <div><dt>On YouTube</dt><dd>Live alerts</dd></div>
+            <div><dt>Why it works</dt><dd>Anything that might disappear feels urgent, so checking now feels safer than checking later. Researchers link features like this to the fear of missing out (Montag and others, 2019).</dd></div>
+            <div><dt>Your move</dt><dd><a href="instagram.html#stories">Mute Stories</a> from accounts you only check out of habit.</dd></div>
+          </dl>
+        </article>
+
+        <article class="hook card" id="loss-aversion" aria-labelledby="h-loss">
+          <div class="hook-head">
+            <span class="hook-num" aria-hidden="true">07</span>
+            <span class="hook-badge"><svg class="icon" aria-hidden="true"><use href="#i-layers"/></svg></span>
+          </div>
+          <h3 id="h-loss">Loss aversion and investment</h3>
+          <p class="hook-plain">Once you’ve built something — followers, posts, subscriptions, a feed that “gets” you — leaving feels like losing it. So you keep coming back to look after it.</p>
+          <dl class="hook-meta">
+            <div><dt>On Instagram</dt><dd>Followers, your posts</dd></div>
+            <div><dt>On YouTube</dt><dd>Subscriptions, playlists, your channel</dd></div>
+            <div><dt>Why it works</dt><dd>We value things more once they’re ours — psychologists call it the endowment effect (Montag and others, 2019). The Hook Model calls the effort you put in “investment”.</dd></div>
+            <div><dt>Your move</dt><dd>Just notice it. A week of fewer check-ins doesn’t delete anything: your followers and subscriptions will still be there.</dd></div>
+          </dl>
+        </article>
+
+        <article class="hook card" id="unfinished-tasks" aria-labelledby="h-unf">
+          <div class="hook-head">
+            <span class="hook-num" aria-hidden="true">08</span>
+            <span class="hook-badge"><svg class="icon" aria-hidden="true"><use href="#i-ring"/></svg></span>
+          </div>
+          <h3 id="h-unf">Unfinished tasks</h3>
+          <p class="hook-plain">Unfinished things nag at us. A row of unwatched Stories, half a playlist, a queue of “Up next” — your brain wants to close the loop.</p>
+          <dl class="hook-meta">
+            <div><dt>On Instagram</dt><dd>Rings around unwatched Stories</dd></div>
+            <div><dt>On YouTube</dt><dd>Playlists, the Up next queue</dd></div>
+            <div><dt>Why it works</dt><dd>It’s called the Zeigarnik effect: we remember, and return to, unfinished tasks more than finished ones (Montag and others, 2019).</dd></div>
+            <div><dt>Your move</dt><dd><a href="youtube.html#autoplay">Turn off autoplay</a> so the queue can’t run itself, and <a href="instagram.html#stories">mute Stories</a> you don’t care about so fewer rings nag.</dd></div>
+          </dl>
+        </article>
+
+        <article class="hook card" id="social-pressure" aria-labelledby="h-sp">
+          <div class="hook-head">
+            <span class="hook-num" aria-hidden="true">09</span>
+            <span class="hook-badge"><svg class="icon" aria-hidden="true"><use href="#i-eye"/></svg></span>
+          </div>
+          <h3 id="h-sp">Social pressure</h3>
+          <p class="hook-plain">When an app shows you’ve “Seen” a message, you feel you owe a reply. Comments and tags work the same way: someone is waiting for you.</p>
+          <dl class="hook-meta">
+            <div><dt>On Instagram</dt><dd>“Seen” in DMs, comments, tags</dd></div>
+            <div><dt>On YouTube</dt><dd>Replies and mentions in comments</dd></div>
+            <div><dt>Why it works</dt><dd>Read receipts are a kind of social pressure: once someone knows you’ve read their message, not answering feels rude (Montag and others, 2019).</dd></div>
+            <div><dt>Your move</dt><dd><a href="instagram.html#seen">Turn off read receipts</a> for one chat, or for all of them.</dd></div>
+          </dl>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="demos" aria-labelledby="demos-h">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Try them yourself</p>
+        <h2 id="demos-h">4 demos, all skippable</h2>
+        <p class="lede">Each one copies a trick inside a harmless, made-up app. Try it, then see what just happened. No sound, and nothing is saved.</p>
+      </div>
+
+      <!-- Demo 1: endless feed -->
+      <section class="demo" id="demo-feed" aria-labelledby="demo-feed-h">
+        <div class="demo-head">
+          <div class="demo-top">
+            <span class="demo-tag">Demo 1 of 4</span>
+            <a class="skip" href="#demo-autoplay">Skip this demo</a>
+          </div>
+          <h3 id="demo-feed-h">The feed that never ends</h3>
+          <p>Scroll the feed inside the phone for as long as you like. Stop whenever you want.</p>
+        </div>
+        <div class="demo-body">
+          <div class="demo-stage">
+            <div class="phone">
+              <div class="screen screen-demo f-screen">
+                <div class="f-hud">
+                  <span><b data-feed-posts>0</b> posts seen</span>
+                  <span><b data-feed-screens>0.0</b> screens scrolled</span>
+                </div>
+                <div class="f-feed" data-feed tabindex="0" role="region" aria-label="Endless feed. Scroll down to see more posts."></div>
+                <div class="f-dock">
+                  <button class="btn btn-small btn-primary" type="button" data-feed-stop disabled>I’m done scrolling</button>
+                </div>
+                <div class="screen-cover" data-feed-cover>
+                  <p class="cover-title">A feed of made-up posts</p>
+                  <button class="btn btn-primary" type="button" data-feed-start>Start scrolling</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="demo-panel">
+            <p class="status" data-feed-status aria-live="polite">Press “Start scrolling”, then scroll inside the phone.</p>
+            <p class="muted small">On a computer, you can also click the feed and use the arrow keys or space bar.</p>
+            <div class="btn-row">
+              <button class="btn btn-small" type="button" data-reveal-now>Just show me what it shows</button>
+            </div>
+            <p class="noscript-note">This demo needs JavaScript. Here’s what it shows:</p>
+          </div>
+        </div>
+        <div class="reveal" data-reveal tabindex="-1">
+          <p class="reveal-label">What just happened</p>
+          <h4>That was: No stopping cues</h4>
+          <p data-feed-summary>The feed never ran out. However far you scroll, it loads more posts before you reach the bottom.</p>
+          <p>Did you spot the “You’re all caught up” line? Real apps show one too — and then carry on with suggested posts. The only way out is to decide to stop, which is much harder than reaching an ending.</p>
+          <p><a href="#no-stopping-cues">Read about this trick</a> · <a href="instagram.html#feed">Set an Instagram daily limit</a></p>
+        </div>
+      </section>
+
+      <!-- Demo 2: autoplay countdown -->
+      <section class="demo" id="demo-autoplay" aria-labelledby="demo-autoplay-h">
+        <div class="demo-head">
+          <div class="demo-top">
+            <span class="demo-tag">Demo 2 of 4</span>
+            <a class="skip" href="#demo-refresh">Skip this demo</a>
+          </div>
+          <h3 id="demo-autoplay-h">Beat the autoplay</h3>
+          <p>Your video is about to finish. When it does, the next one starts in 5 seconds — unless you stop it.</p>
+        </div>
+        <div class="demo-body demo-body-wide">
+          <div class="demo-stage">
+            <div class="player-wrap">
+              <div class="player" data-ap-player>
+                <div class="player-scene" aria-hidden="true"></div>
+                <div class="player-progress" aria-hidden="true"><span data-ap-progress></span></div>
+                <div class="ap-overlay" data-ap-overlay hidden>
+                  <div class="ap-next">
+                    <div class="ap-ring" aria-hidden="true">
+                      <svg viewBox="0 0 48 48"><circle class="ap-ring-bg" cx="24" cy="24" r="20"/><circle class="ap-ring-fg" cx="24" cy="24" r="20" data-ap-ring/></svg>
+                      <span data-ap-seconds>5</span>
+                    </div>
+                    <div>
+                      <p class="ap-upnext">Up next in <span data-ap-seconds-text>5</span></p>
+                      <p class="ap-nexttitle">10 paper planes, ranked by distance</p>
+                    </div>
+                  </div>
+                  <div class="ap-actions">
+                    <button class="btn btn-small btn-primary" type="button" data-ap-cancel>Cancel</button>
+                    <button class="btn btn-small" type="button" data-ap-playnow>Play now</button>
+                  </div>
+                </div>
+              </div>
+              <div class="player-meta">
+                <p class="player-title" data-ap-title>How to fold a paper plane that actually flies</p>
+                <p class="muted small">Made-up Channel · demo video</p>
+              </div>
+            </div>
+          </div>
+          <div class="demo-panel">
+            <div class="btn-row">
+              <button class="btn btn-primary" type="button" data-ap-start>Play the last few seconds</button>
+              <button class="btn btn-small" type="button" data-ap-reset hidden>Try again</button>
+            </div>
+            <label class="check small-check">
+              <input type="checkbox" data-ap-slow>
+              <span>Give me 15 seconds instead of 5</span>
+            </label>
+            <p class="status" data-ap-status aria-live="polite"></p>
+            <div class="btn-row">
+              <button class="btn btn-small" type="button" data-reveal-now>Just show me what it shows</button>
+            </div>
+            <p class="noscript-note">This demo needs JavaScript. Here’s what it shows:</p>
+          </div>
+        </div>
+        <div class="reveal" data-reveal tabindex="-1">
+          <p class="reveal-label">What just happened</p>
+          <h4>That was: No stopping cues (and the power of defaults)</h4>
+          <p data-ap-summary>When a video ends, autoplay starts the next one unless you act fast.</p>
+          <p>Autoplay turns stopping into the thing you have to do, and carrying on into what happens if you do nothing. Doing nothing is always easier. YouTube has kept autoplay off by default for 13–17-year-olds since 2021 — yet in our survey, 11 of 21 students knew how to turn it off but hadn’t.</p>
+          <p><a href="#no-stopping-cues">Read about this trick</a> · <a href="youtube.html#autoplay">Turn off autoplay</a></p>
+        </div>
+      </section>
+
+      <!-- Demo 3: pull to refresh -->
+      <section class="demo" id="demo-refresh" aria-labelledby="demo-refresh-h">
+        <div class="demo-head">
+          <div class="demo-top">
+            <span class="demo-tag">Demo 3 of 4</span>
+            <a class="skip" href="#demo-likes">Skip this demo</a>
+          </div>
+          <h3 id="demo-refresh-h">Pull to refresh</h3>
+          <p>Drag down inside the phone (or press Refresh) to load new posts. What will you get this time?</p>
+        </div>
+        <div class="demo-body">
+          <div class="demo-stage">
+            <div class="phone">
+              <div class="screen r-screen" data-pull-area>
+                <div class="r-pull" aria-hidden="true">
+                  <svg class="icon" data-pull-arrow><use href="#i-arrow-down"/></svg>
+                  <span data-pull-label>Pull down to refresh</span>
+                </div>
+                <div class="r-content" data-pull-content>
+                  <div class="reels" aria-hidden="true">
+                    <span class="reel" data-reel><svg class="icon"><use href="#i-empty"/></svg></span>
+                    <span class="reel" data-reel><svg class="icon"><use href="#i-empty"/></svg></span>
+                    <span class="reel" data-reel><svg class="icon"><use href="#i-empty"/></svg></span>
+                  </div>
+                  <div class="r-result" data-pull-result>
+                    <span class="r-result-kind" data-pull-kind>Your feed</span>
+                    <p data-pull-text>Pull down to see what’s new.</p>
+                  </div>
+                  <div class="r-ghost" aria-hidden="true">
+                    <div class="m-post-head"><span class="m-avatar"></span><span class="m-name"></span></div>
+                    <div class="m-line"></div>
+                    <div class="m-line short"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="demo-panel">
+            <div class="demo-stats">
+              <p class="stat"><span class="stat-num" data-pull-count>0</span><span class="stat-label">refreshes</span></p>
+              <p class="stat"><span class="stat-num" data-pull-good>0</span><span class="stat-label">something good</span></p>
+            </div>
+            <div class="btn-row">
+              <button class="btn btn-primary" type="button" data-pull-button><svg class="icon" aria-hidden="true"><use href="#i-refresh"/></svg>Refresh</button>
+            </div>
+            <p class="status" data-pull-status aria-live="polite"></p>
+            <div class="btn-row">
+              <button class="btn btn-small" type="button" data-reveal-now>Just show me what it shows</button>
+            </div>
+            <p class="noscript-note">This demo needs JavaScript. Here’s what it shows:</p>
+          </div>
+        </div>
+        <div class="reveal" data-reveal tabindex="-1">
+          <p class="reveal-label">What just happened</p>
+          <h4>That was: Variable rewards</h4>
+          <p data-pull-summary>Each pull might bring something great, or nothing at all.</p>
+          <p>You couldn’t predict what the next pull would bring. Usually nothing much — sometimes something great. That “maybe this time” feeling is what keeps you pulling, and it’s the same reason slot machines are hard to walk away from.</p>
+          <p><a href="#variable-rewards">Read about this trick</a> · <a href="youtube.html#shorts">Set a Shorts feed limit</a></p>
+        </div>
+      </section>
+
+      <!-- Demo 4: likes trickle in -->
+      <section class="demo" id="demo-likes" aria-labelledby="demo-likes-h">
+        <div class="demo-head">
+          <div class="demo-top">
+            <span class="demo-tag">Demo 4 of 4</span>
+            <a class="skip" href="#three-questions">Skip this demo</a>
+          </div>
+          <h3 id="demo-likes-h">Likes trickle in</h3>
+          <p>You’ve just posted a photo. Watch what happens over the next 30 seconds.</p>
+        </div>
+        <div class="demo-body">
+          <div class="demo-stage">
+            <div class="phone">
+              <div class="screen l-screen">
+                <div class="l-banner" data-like-banner aria-hidden="true">
+                  <svg class="icon" aria-hidden="true"><use href="#i-heart"/></svg><span data-like-banner-text>Someone liked your photo</span>
+                </div>
+                <div class="m-post-head"><span class="m-avatar"></span><span class="l-user">you</span></div>
+                <div class="m-img l-img"></div>
+                <div class="m-actions">
+                  <svg class="icon l-heart" aria-hidden="true"><use href="#i-heart"/></svg>
+                  <svg class="icon" aria-hidden="true"><use href="#i-comment"/></svg>
+                  <svg class="icon" aria-hidden="true"><use href="#i-share"/></svg>
+                </div>
+                <p class="m-likes"><span data-like-count>0</span> likes</p>
+                <p class="l-caption"><b>you</b> first post in ages</p>
+                <div class="l-away" data-like-away hidden>
+                  <svg class="icon icon-lg" aria-hidden="true"><use href="#i-phone"/></svg>
+                  <p>Phone face down</p>
+                  <p class="l-away-time"><span data-like-away-seconds>10</span>s</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="demo-panel">
+            <div class="demo-stats">
+              <p class="stat"><span class="stat-num" data-like-total>0</span><span class="stat-label">likes so far</span></p>
+              <p class="stat"><span class="stat-num" data-like-time>30</span><span class="stat-label">seconds left</span></p>
+            </div>
+            <div class="l-timeline" aria-hidden="true">
+              <span class="l-axis"></span>
+              <div class="l-ticks" data-like-ticks></div>
+              <span class="l-axis-label l-axis-start">0s</span>
+              <span class="l-axis-label l-axis-end">30s</span>
+            </div>
+            <p class="muted small">Each mark on the line is one like, placed at the moment it arrived.</p>
+            <div class="btn-row">
+              <button class="btn btn-primary" type="button" data-like-start>Post the photo</button>
+              <button class="btn" type="button" data-like-away-button disabled>Put the phone down for 10 seconds</button>
+            </div>
+            <p class="status" data-like-status aria-live="polite"></p>
+            <div class="btn-row">
+              <button class="btn btn-small" type="button" data-reveal-now>Just show me what it shows</button>
+            </div>
+            <p class="noscript-note">This demo needs JavaScript. Here’s what it shows:</p>
+          </div>
+        </div>
+        <div class="reveal" data-reveal tabindex="-1">
+          <p class="reveal-label">What just happened</p>
+          <h4>That was: Social validation (with a side of variable rewards)</h4>
+          <p data-like-summary>The likes arrived one by one, at random moments.</p>
+          <p>Because they didn’t come on a schedule, there was always a reason to look again — and each one is a tiny social reward. If you put the phone down, you got the same likes, just all at once. Checking didn’t make them arrive faster.</p>
+          <p><a href="#social-validation">Read about this trick</a> · <a href="instagram.html#likes">Hide like counts on Instagram</a></p>
+        </div>
+      </section>
+
+    </div>
+  </section>
+
+  <section class="section" id="three-questions" aria-labelledby="three-h">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Take this with you</p>
+        <h2 id="three-h">The three-question test</h2>
+        <p class="lede">Use it on any feature, in any app — including this website.</p>
+      </div>
+      <ol class="questions">
+        <li><strong>Who benefits?</strong> <span>You, the app, or both?</span></li>
+        <li><strong>Did I choose this?</strong> <span>Or was it switched on for me?</span></li>
+        <li><strong>Can I stop when I want?</strong> <span>Is there a natural end, or do I have to fight my way out?</span></li>
+      </ol>
+      <div class="grid" style="margin-top: 28px">
+        <div class="card test-card">
+          <p class="eyebrow">Try it on</p>
+          <h3>YouTube autoplay</h3>
+          <dl class="test-answers">
+            <div><dt>Who benefits?</dt><dd>Mostly the app: more watch time means more ads.</dd></div>
+            <div><dt>Did I choose this?</dt><dd>Probably not: if your account says you’re 18 or over, it starts switched on.</dd></div>
+            <div><dt>Can I stop when I want?</dt><dd>Only if you beat the countdown.</dd></div>
+          </dl>
+          <p class="verdict verdict-hook">Verdict: a hook. Worth switching off.</p>
+        </div>
+        <div class="card test-card">
+          <p class="eyebrow">Try it on</p>
+          <h3>Instagram Sleep mode</h3>
+          <dl class="test-answers">
+            <div><dt>Who benefits?</dt><dd>You: quieter nights.</dd></div>
+            <div><dt>Did I choose this?</dt><dd>You can — and on teen accounts it’s on from 10 pm to 7 am.</dd></div>
+            <div><dt>Can I stop when I want?</dt><dd>Yes, any time.</dd></div>
+          </dl>
+          <p class="verdict verdict-tool">Verdict: a tool that works for you. Keep it.</p>
+        </div>
+      </div>
+      <p style="margin-top: 24px">Ready to change a few settings? <a href="challenge.html">Try the 7-day challenge</a>.</p>
+    </div>
+  </section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <p class="footer-brand">Hooked by Design</p>
+      <p>A Service as Action project by Avyukt Aggarwal, Neal Nikhil Suman, Ashvathh Sinnha and Atharva Kushwaha (MYP 4A).</p>
+      <p class="footer-small">No ads, no accounts, no tracking. Not affiliated with Instagram, Meta, YouTube or Google; their names are used only to describe their features. App features change often &mdash; last checked October 2026.</p>
+    </div>
+    <nav aria-label="Footer">
+      <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="playbook.html">Hook Playbook</a></li>
+          <li><a href="instagram.html">Instagram</a></li>
+          <li><a href="youtube.html">YouTube</a></li>
+          <li><a href="survey.html">Our Survey</a></li>
+          <li><a href="challenge.html">7-Day Challenge</a></li>
+          <li><a href="about.html">About &amp; Sources</a></li>
+      </ul>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

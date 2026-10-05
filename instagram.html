@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Instagram, feature by feature — Hooked by Design</title>
+<meta name="description" content="Instagram's Feed, Reels, Explore, likes, notifications, Stories and "Seen" — the trick behind each one, and the setting that puts you back in charge.">
+<meta property="og:title" content="Instagram, feature by feature">
+<meta property="og:description" content="Instagram's Feed, Reels, Explore, likes, notifications, Stories and "Seen" — the trick behind each one, and the setting that puts you back in charge.">
+<meta property="og:type" content="website">
+<!-- After publishing, change this to the full address, e.g. https://YOUR-NAME.github.io/hooked-by-design/assets/img/social-card.png -->
+<meta property="og:image" content="assets/img/social-card.png">
+<meta name="theme-color" content="#f1f2ec" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121316" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/bricolage-grotesque.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/atkinson-hyperlegible-next.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/style.css">
+<script>document.documentElement.classList.replace('no-js', 'js');</script>
+<script src="assets/js/site.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-hook" viewBox="0 0 24 24"><path d="M7 1.5v3"/><circle cx="7" cy="6.2" r="1.7"/><path d="M7 7.9v6.6a5 5 0 0 0 10 0V10"/><path d="M17 10l-3 2.8"/></symbol>
+  <symbol id="i-dice" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="4"/><circle cx="8.5" cy="8.5" r="1.4" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/><circle cx="15.5" cy="15.5" r="1.4" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-infinity" viewBox="0 0 24 24"><path d="M12 12c-1.8-2.4-3.4-4-5.5-4a4 4 0 0 0 0 8c2.1 0 3.7-1.6 5.5-4zm0 0c1.8 2.4 3.4 4 5.5 4a4 4 0 0 0 0-8c-2.1 0-3.7 1.6-5.5 4z"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-8-4.9-8-10.6C4 6.9 5.9 5 8.2 5c1.6 0 3 .9 3.8 2.3C12.8 5.9 14.2 5 15.8 5 18.1 5 20 6.9 20 9.4 20 15.1 12 20 12 20z"/></symbol>
+  <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1.3" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6.5 16.5v-5.2a5.5 5.5 0 0 1 11 0v5.2l1.6 2H4.9z"/><path d="M10 21h4"/></symbol>
+  <symbol id="i-hourglass" viewBox="0 0 24 24"><path d="M6.5 3.5h11M6.5 20.5h11M8 3.5c0 4.4 8 4.6 8 8.5s-8 4.1-8 8.5M16 3.5c0 4.4-8 4.6-8 8.5s8 4.1 8 8.5"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3.5l8.5 4.6L12 12.7 3.5 8.1z"/><path d="M3.5 12.2l8.5 4.6 8.5-4.6"/><path d="M3.5 16.3l8.5 4.6 8.5-4.6"/></symbol>
+  <symbol id="i-ring" viewBox="0 0 24 24"><path d="M12 3.5A8.5 8.5 0 1 1 3.5 12"/><circle cx="3.5" cy="12" r="1.6" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.5 12s3.5-6.5 9.5-6.5 9.5 6.5 9.5 6.5-3.5 6.5-9.5 6.5S2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-arrow-down" viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></symbol>
+  <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M19.5 12a7.5 7.5 0 1 1-2.2-5.3"/><path d="M19.5 4.5v4h-4"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10-6.5z"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24"><path d="M9 5.5v13M15 5.5v13"/></symbol>
+  <symbol id="i-comment" viewBox="0 0 24 24"><path d="M4.5 5.5h15V16H11l-4.5 3.5V16h-2z"/></symbol>
+  <symbol id="i-share" viewBox="0 0 24 24"><circle cx="6.5" cy="12" r="2.5"/><circle cx="17.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/><path d="M8.7 10.9l6.6-3.3M8.7 13.1l6.6 3.3"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3.5" y="5.5" width="17" height="13" rx="3"/><path d="M4.5 7.5l7.5 5.5 7.5-5.5"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M4 11.2L12 4.5l8 6.7V20h-5.2v-5.5H9.2V20H4z"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></symbol>
+  <symbol id="i-film" viewBox="0 0 24 24"><rect x="5" y="3.5" width="14" height="17" rx="3"/><path d="M10.2 9.2v5.6l4.4-2.8z"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.6"/><path d="M5 20c.8-3.8 3.6-5.6 7-5.6s6.2 1.8 7 5.6"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M19.5 14.6A7.6 7.6 0 1 1 9.4 4.5a6.1 6.1 0 0 0 10.1 10.1z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3.8l2.5 5.2 5.7.8-4.1 4 1 5.6L12 16.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></symbol>
+  <symbol id="i-tag" viewBox="0 0 24 24"><path d="M3.5 12.5v-8h8l9 9-8 8z"/><circle cx="8" cy="9" r="1.4" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-empty" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" stroke-dasharray="2.5 3"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><rect x="7" y="3" width="10" height="18" rx="2.6"/><path d="M11 17.5h2"/></symbol>
+  <symbol id="i-ban" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M6 6l12 12"/></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></symbol>
+  <symbol id="i-tv" viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="12.5" rx="2.5"/><path d="M8 20.5h8"/><path d="M10.4 8.3v5.4l4.3-2.7z"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3.5 20.5h17M6.5 20.5V11M11.5 20.5V5M16.5 20.5v-7"/></symbol>
+  <symbol id="i-flag" viewBox="0 0 24 24"><path d="M5.5 21V4M5.5 4.5h11l-2 4 2 4h-11"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M4.5 5.5c2.5-1 5-1 7.5.8 2.5-1.8 5-1.8 7.5-.8v13c-2.5-1-5-1-7.5.8-2.5-1.8-5-1.8-7.5-.8z"/><path d="M12 6.3v13"/></symbol>
+  <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></symbol>
+  <symbol id="i-people" viewBox="0 0 24 24"><circle cx="9" cy="8.5" r="3.2"/><path d="M3.5 19.5c.6-3.4 2.8-5 5.5-5s4.9 1.6 5.5 5"/><circle cx="16.5" cy="9.5" r="2.6"/><path d="M15.5 14.6c2.6 0 4.4 1.4 5 4.4"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v5.5M12 7.6v.2"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol>
+  <symbol id="i-ball" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 8l3.6 2.6-1.4 4.3H9.8l-1.4-4.3z"/><path d="M12 3.5V8M15.6 10.6l4.5-1.4M14.2 14.9l2.7 3.8M9.8 14.9l-2.7 3.8M8.4 10.6L3.9 9.2"/></symbol>
+  <symbol id="i-pad" viewBox="0 0 24 24"><path d="M7 8h10a4 4 0 0 1 3.9 4.9l-.8 3.4a2.5 2.5 0 0 1-4.2 1.2L14 15.5h-4l-1.9 2a2.5 2.5 0 0 1-4.2-1.2l-.8-3.4A4 4 0 0 1 7 8z"/><path d="M8 11v3M6.5 12.5h3"/><circle cx="16" cy="12.5" r="1.1" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-pan" viewBox="0 0 24 24"><circle cx="10" cy="13" r="6"/><path d="M16 13h5.5"/><path d="M8 6.5c0-1.2 1-1.6 1-2.8M11.5 6.5c0-1.2 1-1.6 1-2.8"/></symbol>
+  <symbol id="i-note" viewBox="0 0 24 24"><path d="M9 17.5V6l10-2v11.5"/><circle cx="6.5" cy="17.5" r="2.5"/><circle cx="16.5" cy="15.5" r="2.5"/></symbol>
+  <symbol id="i-flask" viewBox="0 0 24 24"><path d="M9 3.5h6M10.2 3.5v6.2L4.8 19.2a1 1 0 0 0 .9 1.3h12.6a1 1 0 0 0 .9-1.3l-5.4-9.5V3.5"/><path d="M7.5 15h9"/></symbol>
+  <symbol id="i-smile" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M8.5 14c1 1.5 2.2 2.2 3.5 2.2s2.5-.7 3.5-2.2"/><path d="M9 9.5v.6M15 9.5v.6"/></symbol>
+</svg>
+<header class="site-header">
+  <div class="wrap header-bar">
+    <a class="brand" href="index.html">
+      <span class="brand-mark"><svg class="icon" aria-hidden="true"><use href="#i-hook"/></svg></span>
+      <span>Hooked by Design</span>
+    </a>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-button>
+      <svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg><span data-menu-label>Menu</span>
+    </button>
+    <nav id="site-nav" class="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="index.html">Home <span class="nav-hint">Quiz and our headline finding</span></a></li>
+        <li><a href="playbook.html">Hook Playbook <span class="nav-hint">9 tricks, with demos</span></a></li>
+        <li><a href="instagram.html" aria-current="page">Instagram <span class="nav-hint">Settings, step by step</span></a></li>
+        <li><a href="youtube.html">YouTube <span class="nav-hint">Settings and the algorithm</span></a></li>
+        <li><a href="survey.html">Our Survey <span class="nav-hint">21 students, in charts</span></a></li>
+        <li><a href="challenge.html">7-Day Challenge <span class="nav-hint">One change a day</span></a></li>
+        <li><a href="about.html">About &amp; Sources <span class="nav-hint">Who we are, where facts come from</span></a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+
+  <section class="page-hero">
+    <div class="wrap teardown">
+      <div class="teardown-text">
+        <p class="eyebrow">Instagram</p>
+        <h1>Instagram, feature by feature</h1>
+        <p class="lede">For each feature: the trick behind it, and the setting that puts you back in charge. About 6 in 10 US teens use Instagram (Pew, 2025). At our school, 8 of 20 students said it’s the app they find harder to put down.</p>
+      </div>
+
+      <div class="teardown-phone" aria-hidden="true">
+        <div class="phone">
+          <div class="screen screen-tall">
+            <div class="m-bar m-bar-pins">
+              <span class="m-word"></span>
+              <span class="m-icons m-icons-wide">
+                <span class="rel is-annotated"><svg class="icon"><use href="#i-heart"/></svg><span class="pin" style="--x: 50%; --y: calc(100% + 22px)">4</span></span>
+                <span class="rel is-annotated"><svg class="icon"><use href="#i-mail"/></svg><span class="pin" style="--x: 50%; --y: calc(100% + 22px)">6</span></span>
+              </span>
+            </div>
+            <div class="m-stories-wrap rel">
+              <div class="m-stories is-annotated">
+                <span class="m-story"></span><span class="m-story"></span><span class="m-story"></span><span class="m-story seen"></span><span class="m-story seen"></span>
+              </div>
+              <span class="pin" style="--x: 50%; --y: calc(100% - 4px)">5</span>
+            </div>
+            <div class="m-post-head"><span class="m-avatar"></span><span class="m-name"></span></div>
+            <div class="m-img m-img-short rel is-annotated-inset"><span class="pin" style="--x: 86%; --y: 18%">1</span></div>
+            <div class="m-actions">
+              <svg class="icon"><use href="#i-heart"/></svg>
+              <svg class="icon"><use href="#i-comment"/></svg>
+              <svg class="icon"><use href="#i-share"/></svg>
+            </div>
+            <p class="m-likes"><span class="rel is-annotated">1,204 likes<span class="pin" style="--x: calc(100% + 26px); --y: 50%">3</span></span></p>
+            <div class="m-line"></div>
+            <div class="m-line short"></div>
+            <p class="m-label"><span class="rel is-annotated">Suggested for you<span class="pin" style="--x: calc(100% + 26px); --y: 50%">2</span></span></p>
+            <div class="m-post-head"><span class="m-avatar t-m2"></span><span class="m-name"></span></div>
+            <div class="m-tabbar">
+              <svg class="icon"><use href="#i-home"/></svg>
+              <svg class="icon"><use href="#i-search"/></svg>
+              <svg class="icon"><use href="#i-film"/></svg>
+              <svg class="icon"><use href="#i-user"/></svg>
+            </div>
+          </div>
+        </div>
+        <p class="teardown-cap">Our own drawing of a photo app — not a real screenshot.</p>
+      </div>
+
+      <div class="teardown-legend">
+        <h2 class="legend-title">What’s in the picture</h2>
+        <ol class="legend">
+          <li><a href="#feed"><span class="legend-num">1</span><span>Endless Feed, Reels and Explore<span class="legend-sub">They never run out</span></span><svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow-down"/></svg></a></li>
+          <li><a href="#recommendations"><span class="legend-num">2</span><span>Recommendations<span class="legend-sub">It learns what keeps you watching</span></span><svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow-down"/></svg></a></li>
+          <li><a href="#likes"><span class="legend-num">3</span><span>Likes and view counts<span class="legend-sub">Little scores on everything</span></span><svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow-down"/></svg></a></li>
+          <li><a href="#notifications"><span class="legend-num">4</span><span>Notifications<span class="legend-sub">Taps on the shoulder</span></span><svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow-down"/></svg></a></li>
+          <li><a href="#stories"><span class="legend-num">5</span><span>Stories<span class="legend-sub">Gone in 24 hours</span></span><svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow-down"/></svg></a></li>
+          <li><a href="#seen"><span class="legend-num">6</span><span>“Seen” in DMs<span class="legend-sub">Someone’s waiting for you</span></span><svg class="icon icon-sm" aria-hidden="true"><use href="#i-arrow-down"/></svg></a></li>
+        </ol>
+        <p class="note" style="margin-top: 16px"><span class="note-label">Menus move</span>Instagram changes its menus from time to time. If a step doesn’t match your app, open <span class="ui">Settings and activity</span> and type the setting’s name into the search bar at the top.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="feed" aria-labelledby="feed-h">
+    <div class="wrap feature-cols">
+      <div class="feature">
+        <div class="feature-head">
+          <span class="feature-num" aria-hidden="true">1</span>
+          <h2 id="feed-h" class="section-title">Endless Feed, Reels and Explore</h2>
+        </div>
+        <div>
+          <p class="trick-label">The tricks behind it</p>
+          <ul class="chips">
+            <li><a class="chip" href="playbook.html#no-stopping-cues"><span class="chip-num">02</span>No stopping cues</a></li>
+            <li><a class="chip" href="playbook.html#variable-rewards"><span class="chip-num">01</span>Variable rewards</a></li>
+            <li><a class="chip" href="playbook.html#personalisation"><span class="chip-num">04</span>Personalisation</a></li>
+          </ul>
+        </div>
+        <p>The Feed, Reels and Explore never run out. There’s always one more post — and any swipe might be the good one.</p>
+        <p class="survey-tie"><span class="tie-num">11 of 20</span><span>students in our survey said Reels kept them on longer than they planned. Another 11 said the same about the endless feed.</span></p>
+      </div>
+      <div class="card control">
+        <h3><svg class="icon" aria-hidden="true"><use href="#i-sliders"/></svg>Take control: set a daily limit</h3>
+        <ol class="steps">
+          <li><span>Go to your profile and tap the menu <span class="ui"><svg class="icon icon-ui" aria-hidden="true"><use href="#i-menu"/></svg></span> at the top right. This opens <span class="ui">Settings and activity</span>.</span></li>
+          <li><span>Tap <span class="ui">Time management</span>, then <span class="ui">Daily limit</span>.</span></li>
+          <li><span>Pick a time, from 15 minutes to 2 hours. Instagram reminds you when you reach it.</span></li>
+        </ol>
+        <p class="note"><span class="note-label">Teen accounts</span>Instagram reminds teen accounts to leave the app after 60 minutes a day.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="recommendations" aria-labelledby="rec-h">
+    <div class="wrap feature-cols">
+      <div class="feature">
+        <div class="feature-head">
+          <span class="feature-num" aria-hidden="true">2</span>
+          <h2 id="rec-h" class="section-title">Recommendations</h2>
+        </div>
+        <div>
+          <p class="trick-label">The trick behind it</p>
+          <ul class="chips">
+            <li><a class="chip" href="playbook.html#personalisation"><span class="chip-num">04</span>Personalisation</a></li>
+          </ul>
+        </div>
+        <p>Instagram learns from what you watch, like, share and linger on, then fills Explore, Reels and your Feed with more of the same.</p>
+        <p class="survey-tie"><span class="tie-num">5</span><span>students asked us how to fix their feed. This is how. (And 6 of 20 said recommendations kept them on longer than planned.)</span></p>
+      </div>
+      <div class="card control">
+        <h3><svg class="icon" aria-hidden="true"><use href="#i-sliders"/></svg>Take control: reset what it suggests</h3>
+        <h4>Reset suggested content</h4>
+        <ol class="steps">
+          <li><span>Go to your profile and tap the menu <span class="ui"><svg class="icon icon-ui" aria-hidden="true"><use href="#i-menu"/></svg></span>.</span></li>
+          <li><span>Tap <span class="ui">Content preferences</span>, then <span class="ui">Reset suggested content</span>, and follow the steps.</span></li>
+          <li><span>This clears Instagram’s suggestions in Explore, Reels and your Feed. It starts learning again from what you do next — so for a few days, spend time on what you actually want more of.</span></li>
+        </ol>
+        <h4>See and edit your topics</h4>
+        <p>In Reels, tap the <span class="ui">Your Algorithm</span> icon at the top right to see the topics Instagram thinks you’re into, then add or remove them. It launched in the US first, in December 2025, so it may not be in your app yet.</p>
+        <h4>Quick fix for one post</h4>
+        <p>Tap <span class="ui">⋯</span> on a post or reel and choose <span class="ui">Not interested</span>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="likes" aria-labelledby="likes-h">
+    <div class="wrap feature-cols">
+      <div class="feature">
+        <div class="feature-head">
+          <span class="feature-num" aria-hidden="true">3</span>
+          <h2 id="likes-h" class="section-title">Likes and view counts</h2>
+        </div>
+        <div>
+          <p class="trick-label">The trick behind it</p>
+          <ul class="chips">
+            <li><a class="chip" href="playbook.html#social-validation"><span class="chip-num">03</span>Social validation</a></li>
+          </ul>
+        </div>
+        <p>Like and view counts turn every post into a scoreboard — yours and everyone else’s.</p>
+        <p class="survey-tie"><span class="tie-num">3 of 20</span><span>students said likes and views kept them on longer than planned — fewer than for Reels or Shorts, but the scoreboard is still there every time you post.</span></p>
+      </div>
+      <div class="card control">
+        <h3><svg class="icon" aria-hidden="true"><use href="#i-sliders"/></svg>Take control: hide the numbers</h3>
+        <h4>On other people’s posts</h4>
+        <ol class="steps">
+          <li><span>Go to your profile and tap the menu <span class="ui"><svg class="icon icon-ui" aria-hidden="true"><use href="#i-menu"/></svg></span>.</span></li>
+          <li><span>Tap <span class="ui">Like and share counts</span> and turn on <span class="ui">Hide like and share counts</span>.</span></li>
+        </ol>
+        <h4>On your own posts</h4>
+        <ol class="steps">
+          <li><span>Before you share: open <span class="ui">Advanced settings</span> and turn on <span class="ui">Hide like and view counts on this post</span>.</span></li>
+          <li><span>Already posted? Tap <span class="ui">⋯</span> on the post, then <span class="ui">Hide like count</span>.</span></li>
+        </ol>
+        <p class="muted small">You can still see who liked a post. The number just stops being the headline.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="notifications" aria-labelledby="notif-h">
+    <div class="wrap feature-cols">
+      <div class="feature">
+        <div class="feature-head">
+          <span class="feature-num" aria-hidden="true">4</span>
+          <h2 id="notif-h" class="section-title">Notifications</h2>
+        </div>
+        <div>
+          <p class="trick-label">The trick behind it</p>
+          <ul class="chips">
+            <li><a class="chip" href="playbook.html#triggers"><span class="chip-num">05</span>Triggers</a></li>
+          </ul>
+        </div>
+        <p>Every buzz and red badge is a reason to open the app — and once you’re in, the feed is waiting.</p>
+        <p class="survey-tie"><span class="tie-num">16 of 21</span><span>students had opened an app because of a notification and stayed longer than they meant to.</span></p>
+      </div>
+      <div class="card control">
+        <h3><svg class="icon" aria-hidden="true"><use href="#i-sliders"/></svg>Take control: fewer buzzes</h3>
+        <h4>Switch off the ones you don’t need</h4>
+        <ol class="steps">
+          <li><span>Go to your profile, tap the menu <span class="ui"><svg class="icon icon-ui" aria-hidden="true"><use href="#i-menu"/></svg></span>, then <span class="ui">Notifications</span>.</span></li>
+          <li><span>Turn off the kinds you don’t need — like Live, Reels and suggestions from Instagram. Keep messages from people.</span></li>
+        </ol>
+        <h4>Turn on Sleep mode</h4>
+        <ol class="steps">
+          <li><span>Menu <span class="ui"><svg class="icon icon-ui" aria-hidden="true"><use href="#i-menu"/></svg></span> → <span class="ui">Time management</span> → <span class="ui">Sleep mode</span>.</span></li>
+          <li><span>Choose the days and times. While it’s on, notifications are muted and anyone who messages you gets an automatic reply.</span></li>
+        </ol>
+        <p class="note"><span class="note-label">Good to know</span>Sleep mode used to be called Quiet mode. Teen accounts have it on from 10 pm to 7 am — and you can schedule it for school hours too.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="stories" aria-labelledby="stories-h">
+    <div class="wrap feature-cols">
+      <div class="feature">
+        <div class="feature-head">
+          <span class="feature-num" aria-hidden="true">5</span>
+          <h2 id="stories-h" class="section-title">Stories</h2>
+        </div>
+        <div>
+          <p class="trick-label">The tricks behind it</p>
+          <ul class="chips">
+            <li><a class="chip" href="playbook.html#fomo"><span class="chip-num">06</span>FOMO and scarcity</a></li>
+            <li><a class="chip" href="playbook.html#unfinished-tasks"><span class="chip-num">08</span>Unfinished tasks</a></li>
+          </ul>
+        </div>
+        <p>Stories disappear after 24 hours, and the rings around ones you haven’t watched nag you to clear them.</p>
+        <p class="survey-tie"><span class="tie-num">3 of 20</span><span>students said Stories kept them on longer than planned.</span></p>
+      </div>
+      <div class="card control">
+        <h3><svg class="icon" aria-hidden="true"><use href="#i-sliders"/></svg>Take control: mute the habit checks</h3>
+        <ol class="steps">
+          <li><span>Find the Story bubble of an account you only check out of habit.</span></li>
+          <li><span>Press and hold it, tap <span class="ui">Mute</span>, then <span class="ui">Mute story</span>.</span></li>
+        </ol>
+        <p class="muted small">They aren’t told, and you can unmute them any time from their profile.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="seen" aria-labelledby="seen-h">
+    <div class="wrap feature-cols">
+      <div class="feature">
+        <div class="feature-head">
+          <span class="feature-num" aria-hidden="true">6</span>
+          <h2 id="seen-h" class="section-title">“Seen” in DMs</h2>
+        </div>
+        <div>
+          <p class="trick-label">The trick behind it</p>
+          <ul class="chips">
+            <li><a class="chip" href="playbook.html#social-pressure"><span class="chip-num">09</span>Social pressure</a></li>
+          </ul>
+        </div>
+        <p>“Seen” tells the other person you’ve read their message — so now you feel you owe them a reply, fast.</p>
+      </div>
+      <div class="card control">
+        <h3><svg class="icon" aria-hidden="true"><use href="#i-sliders"/></svg>Take control: turn off read receipts</h3>
+        <h4>For one chat</h4>
+        <ol class="steps">
+          <li><span>Open the chat and tap the person’s name at the top.</span></li>
+          <li><span>Tap <span class="ui">Privacy and safety</span> and turn off <span class="ui">Read receipts</span>.</span></li>
+        </ol>
+        <h4>For all chats</h4>
+        <ol class="steps">
+          <li><span>Go to your profile and tap the menu <span class="ui"><svg class="icon icon-ui" aria-hidden="true"><use href="#i-menu"/></svg></span>.</span></li>
+          <li><span>Tap <span class="ui">Messages and story replies</span>, then <span class="ui">Show read receipts</span>, and switch it off.</span></li>
+        </ol>
+        <p class="muted small">Messages sent in vanish mode always show when they’ve been read.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="us-changes" aria-labelledby="us-h">
+    <div class="wrap">
+      <div class="callout us-callout">
+        <p class="eyebrow" style="color: inherit">Meanwhile, in the US</p>
+        <h2 id="us-h" class="section-title">Some teens are getting these settings by default</h2>
+        <p>In August 2026, Meta agreed with US states to change teen accounts in the US: a default 2-hour daily limit, a block from midnight to 6 am, notifications muted from 8 am to 3 pm, like counts hidden, and a switch to turn off autoplay.</p>
+        <p><strong>These changes are not in India yet, so here you have to set them up yourself.</strong> You can get close:</p>
+        <ul class="us-list">
+          <li><span>A 2-hour daily limit</span> <a href="#feed">Set a daily limit</a></li>
+          <li><span>Quiet nights, and quiet school hours</span> <a href="#notifications">Schedule Sleep mode</a></li>
+          <li><span>Hidden like counts</span> <a href="#likes">Hide like and share counts</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <p class="footer-brand">Hooked by Design</p>
+      <p>A Service as Action project by Avyukt Aggarwal, Neal Nikhil Suman, Ashvathh Sinnha and Atharva Kushwaha (MYP 4A).</p>
+      <p class="footer-small">No ads, no accounts, no tracking. Not affiliated with Instagram, Meta, YouTube or Google; their names are used only to describe their features. App features change often &mdash; last checked October 2026.</p>
+    </div>
+    <nav aria-label="Footer">
+      <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="playbook.html">Hook Playbook</a></li>
+          <li><a href="instagram.html">Instagram</a></li>
+          <li><a href="youtube.html">YouTube</a></li>
+          <li><a href="survey.html">Our Survey</a></li>
+          <li><a href="challenge.html">7-Day Challenge</a></li>
+          <li><a href="about.html">About &amp; Sources</a></li>
+      </ul>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

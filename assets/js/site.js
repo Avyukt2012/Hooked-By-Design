@@ -60,7 +60,7 @@
       var dark = isDark();
       button.setAttribute('aria-pressed', String(dark));
       button.title = dark ? 'Switch to light mode' : 'Switch to dark mode';
-      if (meta) meta.setAttribute('content', dark ? '#13121d' : '#f7f6fb');
+      if (meta) meta.setAttribute('content', dark ? '#161412' : '#f6f2ea');
     }
 
     function apply(dark) {

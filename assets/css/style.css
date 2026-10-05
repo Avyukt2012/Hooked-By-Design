@@ -23,76 +23,69 @@
 }
 
 /* ---------- Design tokens ---------- */
-/* All the colours live here. Change one value and it changes everywhere. */
+/* All the colours live here. Change one value and it changes everywhere.
+   No gradients, no glows: flat colour on warm paper, one red accent. */
 
 :root {
-  /* Backgrounds */
-  --paper: #f7f6fb;
-  --paper-2: #f0eff8;
-  --card: #ffffff;
-  --sunk: #f1f0f8;
+  /* Backgrounds: warm paper, like a printed page */
+  --paper: #f6f2ea;
+  --paper-2: #efe9df;
+  --card: #fffdf8;
+  --sunk: #efe9df;
 
   /* Text */
-  --ink: #1c1a33;
-  --ink-2: #565470;
+  --ink: #1a1714;
+  --ink-2: #5d564c;
 
   /* Lines */
-  --line: #e7e5f1;
-  --line-2: #d8d5e8;
-  --control: #8f8ca8;
+  --line: #e3dbcd;
+  --line-2: #d2c8b7;
+  --control: #8c8477;
 
-  /* Brand */
-  --brand: #5243e8;
-  --on-brand: #ffffff;
-  --brand-soft: #eeecff;
-  --note-line: #d9d4fd;
-  --lime: #d9f46c;
-  --lime-soft: #f3fbd2;
-  --on-lime: #1c1a33;
-  --reveal-line: #dcef9a;
-  --rose: #a3123f;
-  --rose-soft: #ffe4ec;
-  --heart: #e8406d;
-  --grey: #b9b6cd;
-  --bar: #bdb6f9;
-  --focus: #5243e8;
+  /* Accent: notification red, the most famous hook of all */
+  --brand: #c4321c;
+  --dot: #d93a22;
+  --on-dot: #fffdf8;
+  --on-brand: #fffdf8;
+  --brand-soft: #f2ebe0;
+  --note-line: #e3dbcd;
 
-  --grad-brand: linear-gradient(135deg, #6a5cff 0%, #4b3ce0 100%);
-  --grad-text: linear-gradient(120deg, #5243e8 15%, #9b4dec 95%);
+  /* Highlighter yellow, for marking things up */
+  --mark: #ffd84a;
+  --mark-soft: #fbf0c4;
+  --on-mark: #1a1714;
+  --reveal-line: #ecdc94;
+  --hl-band: #ffd84a;
 
-  /* Soft colour washes behind the page headers */
-  --wash-1: rgb(150 135 255 / 0.3);
-  --wash-2: rgb(110 220 175 / 0.26);
-  --wash-3: rgb(255 185 145 / 0.3);
-  --grid-dot: rgb(28 26 51 / 0.09);
+  --rose: #a8271a;
+  --rose-soft: #fbe4dd;
+  --heart: #d93a22;
+  --grey: #c4bcae;
+  --bar: #a39a8c;
+  --focus: #c4321c;
 
   /* Mock-up palette: our own colours, not the apps' brand colours */
-  --m1: #dcd7ff;
-  --m2: #c6efd9;
-  --m3: #ffd9c4;
-  --m4: #cde4ff;
-  --m5: #e8f7a6;
-  --m6: #ffd2e2;
-  --mock-line: rgb(28 26 51 / 0.18);
-  --mock-ink: #2b2943;
-  --skeleton: #e3e1ee;
+  --m1: #dcd6ee;
+  --m2: #cfe5d3;
+  --m3: #f5d3bd;
+  --m4: #cde1ee;
+  --m5: #f3e6a6;
+  --m6: #f4d0d2;
+  --mock-line: rgb(26 23 20 / 0.2);
+  --mock-ink: #2b2723;
+  --skeleton: #e6dfd2;
 
-  /* Shadows */
-  --shadow-xs: 0 1px 2px rgb(28 26 51 / 0.06);
-  --shadow-sm: 0 1px 2px rgb(28 26 51 / 0.04), 0 4px 14px -6px rgb(42 34 120 / 0.12);
-  --shadow: 0 1px 3px rgb(28 26 51 / 0.05), 0 12px 28px -12px rgb(42 34 120 / 0.2);
-  --shadow-lg: 0 2px 6px rgb(28 26 51 / 0.04), 0 28px 56px -22px rgb(42 34 120 / 0.3);
-  --shadow-brand: 0 8px 20px -8px rgb(82 67 232 / 0.6);
-  --shadow-brand-hover: 0 14px 28px -10px rgb(82 67 232 / 0.65);
+  /* Only things that float over the app drawings get a shadow */
+  --shadow-pop: 0 8px 20px -10px rgb(26 23 20 / 0.45);
 
-  /* A white tick for checked boxes */
-  --check-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E");
+  /* The tick inside a checked box */
+  --check-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fffdf8' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E");
 
   /* Shape */
-  --r-sm: 10px;
-  --r: 14px;
-  --r-lg: 22px;
-  --r-xl: 30px;
+  --r-sm: 8px;
+  --r: 10px;
+  --r-lg: 14px;
+  --r-xl: 18px;
 
   /* Type */
   --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
@@ -106,59 +99,51 @@
 }
 
 :root[data-theme="dark"] {
-  --paper: #13121d;
-  --paper-2: #181726;
-  --card: #1d1c2c;
-  --sunk: #161523;
+  --paper: #161412;
+  --paper-2: #1b1916;
+  --card: #1f1c19;
+  --sunk: #12100e;
 
-  --ink: #ecebf6;
-  --ink-2: #aeacc6;
+  --ink: #f3ede3;
+  --ink-2: #b8afa2;
 
-  --line: #2b293d;
-  --line-2: #3a374f;
-  --control: #7d7a96;
+  --line: #302b26;
+  --line-2: #433c35;
+  --control: #8e8579;
 
-  --brand: #a89eff;
-  --on-brand: #13121d;
-  --brand-soft: #28244a;
-  --note-line: #3a356c;
-  --lime: #d9f46c;
-  --lime-soft: #262c12;
-  --on-lime: #1c1a33;
-  --reveal-line: #445019;
-  --rose: #ff9cbc;
-  --rose-soft: #3a1a2a;
-  --heart: #ff6f93;
-  --grey: #6b6884;
-  --bar: #5a5294;
-  --focus: #c0b8ff;
+  --brand: #ff7b63;
+  --dot: #d93a22;
+  --on-dot: #fffdf8;
+  --on-brand: #161412;
+  --brand-soft: #24201c;
+  --note-line: #302b26;
 
-  --grad-brand: linear-gradient(135deg, #c0b8ff 0%, #9a8ffb 100%);
-  --grad-text: linear-gradient(120deg, #b4abff 15%, #e0a8ff 95%);
+  --mark: #ffd84a;
+  --mark-soft: #2e2810;
+  --on-mark: #1a1714;
+  --reveal-line: #57491a;
+  --hl-band: rgb(255 216 74 / 0.35);
 
-  --wash-1: rgb(120 100 255 / 0.2);
-  --wash-2: rgb(60 170 130 / 0.12);
-  --wash-3: rgb(210 120 80 / 0.12);
-  --grid-dot: rgb(255 255 255 / 0.06);
+  --rose: #ff8f80;
+  --rose-soft: #3a1f19;
+  --heart: #ff6a55;
+  --grey: #5a534b;
+  --bar: #7a7166;
+  --focus: #ff7b63;
 
-  --m1: #3d3775;
-  --m2: #22523d;
-  --m3: #6e3f29;
-  --m4: #224566;
-  --m5: #4a5719;
-  --m6: #6c2d47;
+  --m1: #3d3852;
+  --m2: #2d4733;
+  --m3: #5c3b28;
+  --m4: #263f50;
+  --m5: #534a1c;
+  --m6: #57303a;
   --mock-line: rgb(255 255 255 / 0.18);
-  --mock-ink: #d7d5e8;
-  --skeleton: #34324a;
+  --mock-ink: #ddd5c8;
+  --skeleton: #36302a;
 
-  --shadow-xs: 0 1px 2px rgb(0 0 0 / 0.3);
-  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.3), 0 4px 14px -6px rgb(0 0 0 / 0.45);
-  --shadow: 0 1px 3px rgb(0 0 0 / 0.3), 0 12px 28px -12px rgb(0 0 0 / 0.6);
-  --shadow-lg: 0 2px 6px rgb(0 0 0 / 0.3), 0 28px 56px -22px rgb(0 0 0 / 0.7);
-  --shadow-brand: 0 8px 20px -8px rgb(150 135 255 / 0.45);
-  --shadow-brand-hover: 0 14px 28px -10px rgb(150 135 255 / 0.55);
+  --shadow-pop: 0 8px 20px -10px rgb(0 0 0 / 0.8);
 
-  --check-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2313121d' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E");
+  --check-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23161412' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E");
 
   color-scheme: dark;
 }
@@ -201,8 +186,8 @@ body {
 }
 
 ::selection {
-  background: var(--lime);
-  color: var(--on-lime);
+  background: var(--mark);
+  color: var(--on-mark);
 }
 
 img,
@@ -330,7 +315,6 @@ button {
   border-radius: 999px;
   font-weight: 700;
   text-decoration: none;
-  box-shadow: var(--shadow);
 }
 
 .skip-link:focus {
@@ -375,12 +359,12 @@ button {
 
 .hl {
   background-color: transparent;
-  background-image: linear-gradient(var(--lime), var(--lime));
+  background-image: linear-gradient(transparent 34%, var(--hl-band) 34%, var(--hl-band) 90%, transparent 90%);
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  color: var(--on-lime);
-  padding: 0 0.14em;
-  border-radius: 0.16em;
+  color: inherit;
+  padding: 0 0.08em;
+  margin: 0 -0.04em;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
 }
@@ -403,17 +387,13 @@ main {
   top: 0;
   z-index: 40;
   background: var(--paper);
-  background: color-mix(in srgb, var(--paper) 82%, transparent);
-  -webkit-backdrop-filter: saturate(1.8) blur(16px);
-  backdrop-filter: saturate(1.8) blur(16px);
   border-bottom: 1px solid transparent;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition: border-color 0.3s ease;
   view-transition-name: site-header;
 }
 
 .site-header.is-scrolled {
   border-bottom-color: var(--line);
-  box-shadow: 0 10px 30px -20px rgb(42 34 120 / 0.35);
 }
 
 /* Without JavaScript the full menu is always open, so the header stays put. */
@@ -446,14 +426,13 @@ main {
 }
 
 .brand-mark {
-  width: 38px;
-  height: 38px;
-  border-radius: 12px;
-  background: var(--grad-brand);
-  color: var(--on-brand);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--dot);
+  color: var(--on-dot);
   display: grid;
   place-items: center;
-  box-shadow: var(--shadow-brand);
   transition: transform 0.45s var(--ease-spring);
 }
 
@@ -484,7 +463,6 @@ main {
   display: grid;
   place-items: center;
   cursor: pointer;
-  box-shadow: var(--shadow-xs);
   transition: border-color 0.2s ease, transform 0.25s var(--ease-out);
 }
 
@@ -527,7 +505,6 @@ main {
   color: var(--ink);
   font-weight: 700;
   cursor: pointer;
-  box-shadow: var(--shadow-xs);
   transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
@@ -536,9 +513,9 @@ main {
 }
 
 .menu-button[aria-expanded="true"] {
-  background: var(--brand-soft);
-  border-color: var(--note-line);
-  color: var(--brand);
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
 }
 
 .no-js .menu-button {
@@ -612,9 +589,8 @@ main {
 }
 
 .site-nav a[aria-current="page"] {
-  background: var(--brand-soft);
-  border-color: transparent;
-  color: var(--brand);
+  border-color: var(--ink);
+  box-shadow: inset 4px 0 0 var(--dot);
 }
 
 .nav-hint {
@@ -667,7 +643,7 @@ main {
     color: var(--ink-2);
     font-size: 0.975rem;
     font-weight: 650;
-    border-radius: 999px;
+    border-radius: var(--r-sm);
   }
 
   .site-nav a:hover {
@@ -677,13 +653,29 @@ main {
   }
 
   .site-nav a[aria-current="page"] {
-    background: var(--brand-soft);
-    color: var(--brand);
+    background: transparent;
+    border-color: transparent;
+    box-shadow: none;
+    color: var(--ink);
     font-weight: 700;
   }
 
   .nav-hint {
     display: none;
+  }
+
+  /* The current page gets a little red notification dot */
+  .site-nav a[aria-current="page"]::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--dot);
+  }
+
+  .site-nav a {
+    justify-content: flex-start;
+    gap: 7px;
   }
 }
 
@@ -696,8 +688,8 @@ main {
   gap: 10px;
   min-height: 50px;
   padding: 12px 24px;
-  border: 1px solid var(--line-2);
-  border-radius: 999px;
+  border: 1.5px solid var(--ink);
+  border-radius: var(--r);
   background: var(--card);
   color: var(--ink);
   font-family: var(--body);
@@ -707,21 +699,17 @@ main {
   text-align: center;
   text-decoration: none;
   cursor: pointer;
-  box-shadow: var(--shadow-xs);
   -webkit-tap-highlight-color: transparent;
   transition: transform 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out), background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
 .btn:hover {
-  transform: translateY(-2px);
-  border-color: var(--control);
-  box-shadow: var(--shadow);
+  background: var(--sunk);
   text-decoration: none;
 }
 
 .btn:active {
-  transform: translateY(0) scale(0.97);
-  box-shadow: var(--shadow-xs);
+  transform: scale(0.97);
   transition-duration: 0.08s;
 }
 
@@ -731,25 +719,26 @@ main {
 }
 
 .btn-primary {
-  background: var(--grad-brand);
-  color: var(--on-brand);
-  border-color: transparent;
-  box-shadow: var(--shadow-brand);
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
 }
 
 .btn-primary:hover {
-  border-color: transparent;
-  box-shadow: var(--shadow-brand-hover);
+  background: var(--dot);
+  border-color: var(--dot);
+  color: var(--on-dot);
 }
 
 .btn-blue {
-  background: var(--brand);
-  color: var(--on-brand);
-  border-color: transparent;
+  background: var(--dot);
+  color: var(--on-dot);
+  border-color: var(--dot);
 }
 
 .btn-blue:hover {
-  border-color: transparent;
+  background: var(--brand);
+  border-color: var(--brand);
 }
 
 .btn-small {
@@ -759,11 +748,14 @@ main {
 }
 
 .btn[disabled],
-.btn[aria-disabled="true"] {
+.btn[aria-disabled="true"],
+.btn[disabled]:hover {
   opacity: 0.45;
   cursor: not-allowed;
   transform: none;
-  box-shadow: none;
+  background: var(--card);
+  border-color: var(--ink);
+  color: var(--ink);
 }
 
 .btn-row {
@@ -815,15 +807,12 @@ main {
   font-size: 0.95rem;
   text-decoration: none;
   line-height: 1.2;
-  box-shadow: var(--shadow-xs);
   transition: transform 0.25s var(--ease-out), background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.25s ease;
 }
 
 a.chip:hover {
   transform: translateY(-2px);
-  background: var(--brand-soft);
-  border-color: var(--note-line);
-  box-shadow: var(--shadow-sm);
+  border-color: var(--ink);
 }
 
 .chip-num {
@@ -833,7 +822,7 @@ a.chip:hover {
   height: 28px;
   padding: 0 5px;
   border-radius: 999px;
-  background: var(--brand-soft);
+  background: var(--sunk);
   color: var(--brand);
   font-family: var(--display);
   font-size: 0.8rem;
@@ -842,48 +831,14 @@ a.chip:hover {
 }
 
 a.chip:hover .chip-num {
-  background: var(--brand);
-  color: var(--on-brand);
+  background: var(--dot);
+  color: var(--on-dot);
 }
 
 /* ---------- Layout blocks ---------- */
 
 .hero {
   padding: clamp(36px, 6vw, 72px) 0 clamp(48px, 7vw, 88px);
-}
-
-/* Soft colour wash and a faint dot grid behind every page header */
-.home-hero,
-.page-hero {
-  position: relative;
-  isolation: isolate;
-}
-
-.home-hero::before,
-.page-hero::before,
-.home-hero::after,
-.page-hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-}
-
-.home-hero::before,
-.page-hero::before {
-  background:
-    radial-gradient(42% 60% at 6% 8%, var(--wash-1), transparent 70%),
-    radial-gradient(36% 52% at 94% 14%, var(--wash-2), transparent 70%),
-    radial-gradient(40% 50% at 72% 100%, var(--wash-3), transparent 70%);
-}
-
-.home-hero::after,
-.page-hero::after {
-  background-image: radial-gradient(circle at 1px 1px, var(--grid-dot) 1px, transparent 0);
-  background-size: 22px 22px;
-  -webkit-mask-image: linear-gradient(to bottom, #000 0%, transparent 80%);
-  mask-image: linear-gradient(to bottom, #000 0%, transparent 80%);
 }
 
 .page-hero {
@@ -922,11 +877,6 @@ a.chip:hover .chip-num {
   border: 1px solid var(--line);
   border-radius: var(--r-lg);
   padding: clamp(20px, 2.6vw, 28px);
-  box-shadow: var(--shadow-sm);
-}
-
-.card-pop {
-  box-shadow: var(--shadow-lg);
 }
 
 .grid {
@@ -936,10 +886,10 @@ a.chip:hover .chip-num {
 }
 
 .note {
-  border: 1px solid var(--note-line);
-  border-radius: var(--r);
+  border-left: 3px solid var(--brand);
+  border-radius: 0 var(--r) var(--r) 0;
   padding: 14px 18px;
-  background: var(--brand-soft);
+  background: var(--sunk);
 }
 
 .note-label {
@@ -953,10 +903,10 @@ a.chip:hover .chip-num {
 }
 
 .callout {
-  border: 1px solid var(--line);
+  border: 1px solid var(--reveal-line);
   border-radius: var(--r-xl);
   padding: clamp(22px, 3.2vw, 36px);
-  background: linear-gradient(135deg, var(--lime-soft) 0%, var(--brand-soft) 100%);
+  background: var(--mark-soft);
   color: var(--ink);
 }
 
@@ -1087,15 +1037,12 @@ a.chip:hover .chip-num {
 }
 
 .quiz-progress {
-  display: inline-flex;
-  width: fit-content;
-  padding: 4px 12px;
-  border-radius: 999px;
-  background: var(--brand-soft);
+  font-weight: 800;
+  font-size: 0.8125rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   color: var(--brand);
-  font-weight: 700;
-  font-size: 0.9rem;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
 .quiz-question {
@@ -1132,15 +1079,15 @@ a.chip:hover .chip-num {
 }
 
 .option:hover {
-  border-color: var(--brand);
-  background: var(--brand-soft);
+  border-color: var(--ink);
+  background: var(--sunk);
   transform: translateX(3px);
 }
 
 .option.is-chosen {
-  border-color: var(--brand);
-  background: var(--brand-soft);
-  box-shadow: 0 0 0 3px var(--note-line);
+  border-color: var(--ink);
+  background: var(--mark-soft);
+  box-shadow: inset 0 0 0 1px var(--ink);
 }
 
 .option-key {
@@ -1160,8 +1107,8 @@ a.chip:hover .chip-num {
 
 .option:hover .option-key,
 .option.is-chosen .option-key {
-  background: var(--brand);
-  color: var(--on-brand);
+  background: var(--dot);
+  color: var(--on-dot);
 }
 
 .quiz-result {
@@ -1174,14 +1121,6 @@ a.chip:hover .chip-num {
   color: var(--brand);
 }
 
-@supports ((-webkit-background-clip: text) or (background-clip: text)) {
-  .result-title {
-    background: var(--grad-text);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-}
 
 .result-title:focus {
   outline: none;
@@ -1221,34 +1160,24 @@ a.chip:hover .chip-num {
   background: var(--card);
   color: var(--ink);
   text-decoration: none;
-  box-shadow: var(--shadow-sm);
   transition: transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out), border-color 0.25s ease;
 }
 
 .route:hover {
-  transform: translateY(-4px);
-  border-color: var(--line-2);
-  box-shadow: var(--shadow-lg);
+  border-color: var(--ink);
   text-decoration: none;
 }
 
 .route-icon {
   grid-row: span 2;
-  width: 54px;
-  height: 54px;
-  border-radius: 16px;
+  width: 44px;
+  height: 44px;
   display: grid;
   place-items: center;
-  background: var(--m1);
-  color: var(--ink);
+  color: var(--brand);
   transition: transform 0.45s var(--ease-spring);
 }
 
-.routes > li:nth-child(2) .route-icon { background: var(--m6); }
-.routes > li:nth-child(3) .route-icon { background: var(--m4); }
-.routes > li:nth-child(4) .route-icon { background: var(--m2); }
-.routes > li:nth-child(5) .route-icon { background: var(--m3); }
-.routes > li:nth-child(6) .route-icon { background: var(--m5); }
 
 .route:hover .route-icon {
   transform: rotate(-8deg) scale(1.08);
@@ -1299,15 +1228,11 @@ a.chip:hover .chip-num {
   background: var(--card);
   font-weight: 700;
   line-height: 1.35;
-  box-shadow: var(--shadow-xs);
 }
 
 .promise-list .icon {
-  width: 30px;
-  height: 30px;
-  padding: 6px;
-  border-radius: 50%;
-  background: var(--brand-soft);
+  width: 22px;
+  height: 22px;
   color: var(--brand);
   stroke-width: 2.6;
 }
@@ -1350,31 +1275,14 @@ a.chip:hover .chip-num {
   color: var(--brand);
 }
 
-@supports ((-webkit-background-clip: text) or (background-clip: text)) {
-  .hook-num {
-    background: var(--grad-text);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-}
 
 .hook-badge {
-  width: 50px;
-  height: 50px;
-  border-radius: 16px;
   display: grid;
   place-items: center;
-  background: var(--m1);
-  color: var(--ink);
+  color: var(--brand);
   margin-left: auto;
 }
 
-.hooks > :nth-child(6n + 2) .hook-badge { background: var(--m6); }
-.hooks > :nth-child(6n + 3) .hook-badge { background: var(--m4); }
-.hooks > :nth-child(6n + 4) .hook-badge { background: var(--m2); }
-.hooks > :nth-child(6n + 5) .hook-badge { background: var(--m3); }
-.hooks > :nth-child(6n + 6) .hook-badge { background: var(--m5); }
 
 .hook h3 {
   font-size: 1.7rem;
@@ -1440,7 +1348,6 @@ a.chip:hover .chip-num {
   font-weight: 720;
   font-size: 1.2rem;
   letter-spacing: -0.01em;
-  box-shadow: var(--shadow-xs);
 }
 
 .loop li span {
@@ -1485,7 +1392,6 @@ a.chip:hover .chip-num {
   background: var(--card);
   padding: clamp(20px, 3vw, 32px);
   scroll-margin-top: 12px;
-  box-shadow: var(--shadow-sm);
 }
 
 .demo + .demo {
@@ -1503,12 +1409,9 @@ a.chip:hover .chip-num {
   align-items: center;
   gap: 8px;
   width: fit-content;
-  padding: 4px 12px;
-  border-radius: 999px;
-  background: var(--brand-soft);
   font-weight: 800;
   font-size: 0.78rem;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--brand);
 }
@@ -1605,7 +1508,7 @@ a.chip:hover .chip-num {
   padding: clamp(18px, 2.4vw, 26px);
   border: 1px solid var(--reveal-line);
   border-radius: var(--r-lg);
-  background: var(--lime-soft);
+  background: var(--mark-soft);
   color: var(--ink);
   display: grid;
   gap: 10px;
@@ -1740,8 +1643,8 @@ a.chip:hover .chip-num {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: var(--lime);
-  color: var(--on-lime);
+  background: var(--mark);
+  color: var(--on-mark);
   display: grid;
   place-items: center;
 }
@@ -1773,10 +1676,7 @@ a.chip:hover .chip-num {
   gap: 14px;
   padding: 20px;
   text-align: center;
-  background:
-    radial-gradient(70% 50% at 20% 10%, var(--wash-1), transparent 70%),
-    radial-gradient(60% 50% at 90% 90%, var(--wash-2), transparent 70%),
-    var(--paper);
+  background: var(--paper);
 }
 
 .screen-cover[hidden] {
@@ -1800,7 +1700,6 @@ a.chip:hover .chip-num {
   border-radius: var(--r-lg);
   overflow: hidden;
   background: var(--card);
-  box-shadow: var(--shadow-lg);
 }
 
 .player {
@@ -1933,7 +1832,7 @@ a.chip:hover .chip-num {
 }
 
 .ap-ring-fg {
-  stroke: #d9f46c;
+  stroke: #ffd84a;
   stroke-linecap: round;
   stroke-dasharray: 125.66;
   stroke-dashoffset: 0;
@@ -1977,8 +1876,8 @@ a.chip:hover .chip-num {
 }
 
 .ap-overlay .btn-primary {
-  background: #d9f46c;
-  border-color: #d9f46c;
+  background: #ffd84a;
+  border-color: #ffd84a;
   color: #1c1a33;
 }
 
@@ -2062,7 +1961,6 @@ a.chip:hover .chip-num {
   background: var(--card);
   display: grid;
   place-items: center;
-  box-shadow: var(--shadow-xs);
 }
 
 .reel .icon {
@@ -2071,9 +1969,9 @@ a.chip:hover .chip-num {
 }
 
 .reel.is-win {
-  background: var(--lime);
+  background: var(--mark);
   border-color: transparent;
-  color: var(--on-lime);
+  color: var(--on-mark);
 }
 
 .r-result {
@@ -2101,7 +1999,7 @@ a.chip:hover .chip-num {
 }
 
 .r-result.is-jackpot {
-  background: var(--lime-soft);
+  background: var(--mark-soft);
   border-color: var(--reveal-line);
 }
 
@@ -2117,6 +2015,7 @@ a.chip:hover .chip-num {
 }
 
 .l-banner {
+  box-shadow: var(--shadow-pop);
   position: absolute;
   top: 10px;
   left: 10px;
@@ -2129,7 +2028,6 @@ a.chip:hover .chip-num {
   border: 1px solid var(--line);
   border-radius: 14px;
   background: var(--card);
-  box-shadow: var(--shadow);
   font-weight: 700;
   font-size: 0.88rem;
   transform: translateY(-140%);
@@ -2234,12 +2132,11 @@ a.chip:hover .chip-num {
   margin-left: -8px;
   border-radius: 50%;
   border: 2px solid var(--card);
-  background: var(--brand);
-  box-shadow: 0 1px 4px rgb(28 26 51 / 0.25);
+  background: var(--dot);
 }
 
 .l-tick.away {
-  background: var(--lime);
+  background: var(--mark);
 }
 
 .l-axis-label {
@@ -2277,7 +2174,6 @@ a.chip:hover .chip-num {
   border: 1px solid var(--line);
   border-radius: var(--r-lg);
   background: var(--card);
-  box-shadow: var(--shadow-sm);
 }
 
 .questions li::before {
@@ -2287,14 +2183,13 @@ a.chip:hover .chip-num {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: var(--grad-brand);
-  color: var(--on-brand);
+  background: var(--dot);
+  color: var(--on-dot);
   display: grid;
   place-items: center;
   font-family: var(--display);
   font-weight: 800;
   font-size: 1.4rem;
-  box-shadow: var(--shadow-brand);
 }
 
 .questions strong {
@@ -2336,7 +2231,7 @@ a.chip:hover .chip-num {
 }
 
 .verdict-tool {
-  background: var(--lime-soft);
+  background: var(--mark-soft);
   border: 1px solid var(--reveal-line);
   color: var(--ink);
 }
@@ -2349,7 +2244,6 @@ a.chip:hover .chip-num {
   border-radius: 44px;
   background: var(--card);
   padding: 10px;
-  box-shadow: var(--shadow-lg);
   position: relative;
   margin-inline: auto;
 }
@@ -2702,6 +2596,7 @@ a.chip:hover .chip-num {
 }
 
 .m-toast {
+  box-shadow: var(--shadow-pop);
   position: absolute;
   left: 10px;
   right: 10px;
@@ -2715,7 +2610,6 @@ a.chip:hover .chip-num {
   background: var(--card);
   font-weight: 800;
   font-size: 0.8rem;
-  box-shadow: var(--shadow);
 }
 
 .m-toast .icon {
@@ -2819,14 +2713,14 @@ a.chip:hover .chip-num {
   height: 28px;
   margin: -14px 0 0 -14px;
   border-radius: 50%;
-  background: var(--lime);
-  color: var(--on-lime);
+  background: var(--mark);
+  color: var(--on-mark);
   display: grid;
   place-items: center;
   font-family: var(--display);
   font-weight: 800;
   font-size: 0.9rem;
-  box-shadow: 0 0 0 2px var(--card), 0 4px 10px -2px rgb(28 26 51 / 0.35);
+  border: 1.5px solid var(--ink);
 }
 
 .pin::after {
@@ -2834,7 +2728,7 @@ a.chip:hover .chip-num {
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  border: 2px solid var(--lime);
+  border: 2px solid var(--mark);
   opacity: 0;
   pointer-events: none;
 }
@@ -2860,13 +2754,11 @@ a.chip:hover .chip-num {
   text-decoration: none;
   font-weight: 700;
   line-height: 1.25;
-  box-shadow: var(--shadow-xs);
   transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.25s var(--ease-out);
 }
 
 .legend a:hover {
-  background: var(--brand-soft);
-  border-color: var(--note-line);
+  border-color: var(--ink);
   transform: translateX(3px);
 }
 
@@ -2884,8 +2776,9 @@ a.chip:hover .chip-num {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: var(--lime);
-  color: var(--on-lime);
+  border: 1.5px solid var(--ink);
+  background: var(--mark);
+  color: var(--on-mark);
   display: grid;
   place-items: center;
   font-family: var(--display);
@@ -2920,8 +2813,9 @@ a.chip:hover .chip-num {
   width: 52px;
   height: 52px;
   border-radius: 50%;
-  background: var(--lime);
-  color: var(--on-lime);
+  border: 1.5px solid var(--ink);
+  background: var(--mark);
+  color: var(--on-mark);
   display: grid;
   place-items: center;
   font-family: var(--display);
@@ -2955,7 +2849,6 @@ a.chip:hover .chip-num {
 .control {
   display: grid;
   gap: 16px;
-  box-shadow: var(--shadow-lg);
 }
 
 .control h3 {
@@ -2966,11 +2859,8 @@ a.chip:hover .chip-num {
 }
 
 .control h3 .icon {
-  width: 40px;
-  height: 40px;
-  padding: 9px;
-  border-radius: 12px;
-  background: var(--brand-soft);
+  width: 26px;
+  height: 26px;
   color: var(--brand);
 }
 
@@ -3009,8 +2899,8 @@ a.chip:hover .chip-num {
   font-family: var(--display);
   font-weight: 800;
   font-size: 0.9rem;
-  background: var(--brand-soft);
-  color: var(--brand);
+  border: 1.5px solid var(--ink);
+  color: var(--ink);
 }
 
 .ui {
@@ -3038,7 +2928,6 @@ a.chip:hover .chip-num {
   border: 1px solid var(--line);
   border-radius: var(--r);
   background: var(--card);
-  box-shadow: var(--shadow-xs);
 }
 
 .survey-tie .tie-num {
@@ -3113,7 +3002,6 @@ a.chip:hover .chip-num {
   gap: 8px;
   align-content: start;
   position: relative;
-  box-shadow: var(--shadow-xs);
 }
 
 .flow li::before {
@@ -3121,13 +3009,12 @@ a.chip:hover .chip-num {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: var(--grad-brand);
+  background: var(--ink);
   color: var(--on-brand);
   display: grid;
   place-items: center;
   font-family: var(--display);
   font-weight: 800;
-  box-shadow: var(--shadow-brand);
 }
 
 .flow strong {
@@ -3236,9 +3123,9 @@ a.chip:hover .chip-num {
 }
 
 .t-btn.watch {
-  background: var(--grad-brand);
-  border-color: transparent;
-  color: var(--on-brand);
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
 }
 
 .weights {
@@ -3270,7 +3157,7 @@ a.chip:hover .chip-num {
   height: 100%;
   width: 0;
   border-radius: 999px;
-  background: var(--grad-brand);
+  background: var(--brand);
   transition: width 0.6s var(--ease-out);
 }
 
@@ -3288,7 +3175,7 @@ a.chip:hover .chip-num {
   padding: 18px 20px;
   border: 1px solid var(--reveal-line);
   border-radius: var(--r-lg);
-  background: var(--lime-soft);
+  background: var(--mark-soft);
   color: var(--ink);
   max-width: 46rem;
 }
@@ -3297,7 +3184,6 @@ a.chip:hover .chip-num {
   margin-top: 36px;
   display: grid;
   gap: 20px;
-  box-shadow: var(--shadow-lg);
 }
 
 .trainer-head {
@@ -3382,7 +3268,7 @@ a.chip:hover .chip-num {
 
 .k-agree { background: var(--brand); }
 .k-neutral { background: var(--grey); }
-.k-disagree { background: var(--lime); box-shadow: inset 0 0 0 1px rgb(28 26 51 / 0.14); }
+.k-disagree { background: var(--ink); }
 .k-other { background: var(--card); box-shadow: inset 0 0 0 1.5px var(--control); }
 
 .units-row {
@@ -3419,7 +3305,7 @@ a.chip:hover .chip-num {
 
 .unit.agree { background: var(--brand); box-shadow: none; }
 .unit.neutral { background: var(--grey); box-shadow: none; }
-.unit.disagree { background: var(--lime); box-shadow: inset 0 0 0 1px rgb(28 26 51 / 0.14); }
+.unit.disagree { background: var(--ink); box-shadow: none; }
 
 .bars {
   list-style: none;
@@ -3462,7 +3348,7 @@ a.chip:hover .chip-num {
 }
 
 .bar-row.top .bar-fill {
-  background: var(--grad-brand);
+  background: var(--brand);
 }
 
 .big-stat {
@@ -3488,15 +3374,6 @@ a.chip:hover .chip-num {
   font-size: clamp(2.2rem, 8vw, 3rem);
 }
 
-@supports ((-webkit-background-clip: text) or (background-clip: text)) {
-  .big-stat .num,
-  .big-num {
-    background: var(--grad-text);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-}
 
 .compare {
   display: grid;
@@ -3520,7 +3397,6 @@ a.chip:hover .chip-num {
   border-radius: var(--r-lg);
   padding: 16px;
   background: var(--card);
-  box-shadow: var(--shadow-xs);
 }
 
 .asked .count {
@@ -3575,7 +3451,7 @@ a.chip:hover .chip-num {
   height: 100%;
   width: calc(var(--done, 0) / 7 * 100%);
   border-radius: 999px;
-  background: var(--grad-brand);
+  background: var(--brand);
   transition: width 0.6s var(--ease-out);
 }
 
@@ -3632,13 +3508,13 @@ a.chip:hover .chip-num {
 }
 
 .day.is-done {
-  background: linear-gradient(135deg, var(--card) 40%, var(--brand-soft) 100%);
-  border-color: var(--note-line);
+  background: var(--mark-soft);
+  border-color: var(--reveal-line);
 }
 
 .day.is-done .day-num {
-  background: var(--grad-brand);
-  color: var(--on-brand);
+  background: var(--mark);
+  color: var(--on-mark);
 }
 
 .day.is-done .day-num small {
@@ -3679,8 +3555,8 @@ a.chip:hover .chip-num {
 }
 
 .check input:checked {
-  background: var(--brand) var(--check-mark) center / 16px 16px no-repeat;
-  border-color: var(--brand);
+  background: var(--ink) var(--check-mark) center / 16px 16px no-repeat;
+  border-color: var(--ink);
 }
 
 .check input:focus-visible {
@@ -3688,8 +3564,8 @@ a.chip:hover .chip-num {
 }
 
 .check:has(input:checked) {
-  background: var(--brand-soft);
-  border-color: var(--note-line);
+  background: var(--mark-soft);
+  border-color: var(--reveal-line);
 }
 
 .check:has(input:focus-visible) {
@@ -3780,7 +3656,6 @@ a.chip:hover .chip-num {
 .progress-card {
   display: grid;
   gap: 14px;
-  box-shadow: var(--shadow-lg);
 }
 
 .progress-text {
@@ -3848,7 +3723,6 @@ a.chip:hover .chip-num {
   font-size: 1.25rem;
   letter-spacing: -0.01em;
   line-height: 1.15;
-  box-shadow: var(--shadow-sm);
 }
 
 .avatar {
@@ -3858,16 +3732,13 @@ a.chip:hover .chip-num {
   border-radius: 50%;
   display: grid;
   place-items: center;
-  background: var(--m1);
+  border: 1.5px solid var(--ink);
   color: var(--ink);
   font-size: 1rem;
   font-weight: 800;
   letter-spacing: 0.02em;
 }
 
-.team li:nth-child(2) .avatar { background: var(--m2); }
-.team li:nth-child(3) .avatar { background: var(--m3); }
-.team li:nth-child(4) .avatar { background: var(--m4); }
 
 .sources {
   padding-left: 1.6em;
@@ -3903,7 +3774,7 @@ a.chip:hover .chip-num {
   padding: 6px 14px;
   border: 1px solid var(--reveal-line);
   border-radius: 999px;
-  background: var(--lime-soft);
+  background: var(--mark-soft);
   color: var(--ink);
   font-weight: 800;
 }
@@ -3940,12 +3811,11 @@ a.chip:hover .chip-num {
 .lost-mark {
   width: 84px;
   height: 84px;
-  border-radius: 26px;
+  border-radius: 50%;
   display: grid;
   place-items: center;
-  background: var(--grad-brand);
-  color: var(--on-brand);
-  box-shadow: var(--shadow-brand);
+  background: var(--dot);
+  color: var(--on-dot);
 }
 
 .lost-mark .icon {
@@ -4419,13 +4289,6 @@ a.chip:hover .chip-num {
   .site-nav,
   .skip-link {
     display: none !important;
-  }
-
-  .home-hero::before,
-  .home-hero::after,
-  .page-hero::before,
-  .page-hero::after {
-    display: none;
   }
 
   .card,

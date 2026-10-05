@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hooked-by-design.vercel.app/sitemap.xml

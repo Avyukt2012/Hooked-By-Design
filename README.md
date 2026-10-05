@@ -4,7 +4,7 @@ A website that shows students how Instagram and YouTube are designed to hold the
 
 A Service as Action project by Avyukt Aggarwal, Neal Nikhil Suman, Ashvathh Sinnha and Atharva Kushwaha (MYP 4A).
 
-It's a plain static site: HTML, CSS and a little JavaScript. No frameworks, no build step, no tracking, and no requests to any other website (the fonts are included in the folder). It's hosted on [Vercel](https://vercel.com).
+It's a plain static site: HTML, CSS and a little JavaScript. No frameworks, no build step, no tracking, and no requests to any other website (the fonts are included in the folder). It's live at **https://hooked-by-design.vercel.app**, hosted on [Vercel](https://vercel.com).
 
 ## Pages
 
@@ -32,6 +32,7 @@ assets/
   fonts/               Bricolage Grotesque + Atkinson Hyperlegible Next (free, SIL Open Font License)
   img/                 favicon, home-screen icon and the picture shown when someone shares a link
 vercel.json            Vercel settings: security headers and font caching
+robots.txt, sitemap.xml  help search engines find every page
 ```
 
 ## Put it online with Vercel (free)
@@ -51,7 +52,7 @@ To preview before uploading, just double-click `index.html` to open it in your b
 ## Before you share it
 
 - **Feedback form:** open `about.html`, search for `REPLACE`, and paste your real form link (for example a Google Form) into the `href`. Until you do, the About page says “The feedback form is coming soon” instead of showing a button that goes nowhere. Once the real link is in, the button appears by itself.
-- **Link preview picture (optional):** in every `.html` file, the `og:image` line uses a short path. Once the site is online, change it to the full address, e.g. `https://hooked-by-design.vercel.app/assets/img/social-card.png` (use your real Vercel address), so WhatsApp and other apps show the picture.
+- **If the address ever changes** (for example a custom domain): search all files for `hooked-by-design.vercel.app` and replace it with the new address. It appears in the `og:url`, `og:image` and `canonical` lines of every page, and in `robots.txt` and `sitemap.xml`. These tell WhatsApp, search engines and other apps where the site and its preview picture live.
 - **Adding something from another website?** `vercel.json` tells browsers to block anything loaded from other websites (scripts, images, fonts, embeds). That keeps our “no requests to any other website” promise. If you ever embed something on purpose, such as a Google Form, add its address to the `Content-Security-Policy` line in `vercel.json`.
 
 ## Keeping it up to date

@@ -4,7 +4,7 @@ A website that shows students how Instagram and YouTube are designed to hold the
 
 A Service as Action project by Avyukt Aggarwal, Neal Nikhil Suman, Ashvathh Sinnha and Atharva Kushwaha (MYP 4A).
 
-It's a plain static site: HTML, CSS and a little JavaScript. No frameworks, no build step, no tracking, and no requests to any other website (the fonts are included in the folder).
+It's a plain static site: HTML, CSS and a little JavaScript. No frameworks, no build step, no tracking, and no requests to any other website (the fonts are included in the folder). It's hosted on [Vercel](https://vercel.com).
 
 ## Pages
 
@@ -17,33 +17,42 @@ It's a plain static site: HTML, CSS and a little JavaScript. No frameworks, no b
 | `survey.html` | Our survey results as charts |
 | `challenge.html` | The 7-day challenge checklist |
 | `about.html` | About us, our rules, the feedback link and all sources |
+| `404.html` | The “page not found” page |
 
 ```
 assets/
-  css/style.css        all the styles (colours are at the top, under "Design tokens")
-  js/site.js           the phone menu
+  css/style.css        all the styles (colours are at the top, under "Design tokens";
+                       the light theme first, then the dark one)
+  js/theme.js          runs first on every page: applies the saved light/dark choice
+  js/site.js           the phone menu, the light/dark switch and the scroll animations
   js/quiz.js           the home-page quiz (questions and results are easy to edit)
   js/demos.js          the 4 Playbook demos
   js/algorithm.js      the "train a mini algorithm" toy on the YouTube page
   js/challenge.js      the 7-day checklist (saves with localStorage)
   fonts/               Bricolage Grotesque + Atkinson Hyperlegible Next (free, SIL Open Font License)
-  img/                 favicon and the picture shown when someone shares a link
+  img/                 favicon, home-screen icon and the picture shown when someone shares a link
+vercel.json            Vercel settings: security headers and font caching
 ```
 
-## Put it online with GitHub Pages (free)
+## Put it online with Vercel (free)
 
-1. Sign in to github.com and create a **new repository**, for example `hooked-by-design`. Make it **Public**.
-2. On the new repository page, choose **uploading an existing file**. Drag in **everything inside this folder** (the `.html` files, the `assets` folder, `README.md` and `.nojekyll`), not the folder itself. Click **Commit changes**.
-   - `.nojekyll` is a hidden file. If you can't see it, it's fine to skip it.
-3. Go to **Settings → Pages**. Under **Build and deployment**, set **Source** to **Deploy from a branch**, choose the **main** branch and the **/ (root)** folder, then **Save**.
-4. Wait a minute or two and refresh. Your site's address appears at the top of the Pages settings, usually `https://YOUR-USERNAME.github.io/hooked-by-design/`.
+1. Push this folder to a GitHub repository (it's already set up if you're reading this on GitHub).
+2. Go to [vercel.com/new](https://vercel.com/new) and sign in with your GitHub account.
+3. Find the repository in the list and click **Import**.
+4. Leave the settings as they are: **Framework Preset: Other**, no build command, and the root folder as the output. Click **Deploy**.
+5. After about a minute you get an address like `https://hooked-by-design.vercel.app`. You can change the name under **Settings → Domains**.
 
-To preview before uploading, just double-click `index.html` to open it in your browser.
+From then on, every change you push to the `main` branch goes live by itself, and every pull request gets its own preview link, so you can check changes before they go live.
+
+**Moving from GitHub Pages?** Once the Vercel site works, switch GitHub Pages off so there's only one copy online: on GitHub, open the repository's **Settings → Pages** and set **Source** to **None** (or delete the Pages deployment).
+
+To preview before uploading, just double-click `index.html` to open it in your browser. (The `404.html` page only works once the site is online.)
 
 ## Before you share it
 
 - **Feedback form:** open `about.html`, search for `REPLACE`, and paste your real form link (for example a Google Form) into the `href`.
-- **Link preview picture (optional):** in every `.html` file, the `og:image` line uses a short path. Once the site is online, change it to the full address, e.g. `https://YOUR-USERNAME.github.io/hooked-by-design/assets/img/social-card.png`, so WhatsApp and other apps show the picture.
+- **Link preview picture (optional):** in every `.html` file, the `og:image` line uses a short path. Once the site is online, change it to the full address, e.g. `https://hooked-by-design.vercel.app/assets/img/social-card.png` (use your real Vercel address), so WhatsApp and other apps show the picture.
+- **Adding something from another website?** `vercel.json` tells browsers to block anything loaded from other websites (scripts, images, fonts, embeds). That keeps our “no requests to any other website” promise. If you ever embed something on purpose, such as a Google Form, add its address to the `Content-Security-Policy` line in `vercel.json`.
 
 ## Keeping it up to date
 
@@ -56,14 +65,15 @@ To edit any text, open the `.html` file in a text editor (VS Code, or GitHub's o
 
 ## Privacy
 
-There are no cookies, analytics or accounts. The only thing stored is the 7-day challenge checklist, saved in the visitor's own browser (`localStorage`, key `hooked-by-design-challenge-v1`). It never leaves their device, and the "Clear my progress" button deletes it.
+There are no cookies, analytics or accounts. The only things stored are the 7-day challenge checklist (`localStorage`, key `hooked-by-design-challenge-v1`) and, if a visitor switches to dark mode, that choice (key `hooked-by-design-theme`). Both stay in the visitor's own browser and never leave their device. The "Clear my progress" button deletes the checklist, and switching back to light mode deletes the theme choice.
 
 ## Accessibility notes
 
 - Works without sound, and every demo can be skipped or explained without being played.
 - Keyboard friendly: skip link, visible focus outlines, real buttons and links.
-- Respects "reduce motion" settings, and follows the phone's light or dark mode.
-- Text contrast meets WCAG AA (checked with axe-core in light and dark mode).
+- Animations are gentle and never loop forever. With "reduce motion" switched on, they're all turned off and everything appears straight away. Without JavaScript, nothing is hidden.
+- Light by default, with a dark mode switch (the moon button in the header).
+- Text contrast meets WCAG AA (checked with axe-core in light and dark mode, on phone and desktop sizes).
 
 ## Credits
 

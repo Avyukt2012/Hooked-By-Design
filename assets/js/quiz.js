@@ -139,6 +139,8 @@
 
   var index = 0;
   var answers = [];
+  var locked = false;
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   function show(name) {
     Object.keys(steps).forEach(function (key) {
@@ -151,11 +153,18 @@
     progressEl.textContent = 'Question ' + (index + 1) + ' of ' + QUESTIONS.length;
     questionEl.textContent = item.q;
     optionsEl.textContent = '';
+    locked = false;
+
+    // Restart the little entrance animation for each new question.
+    questionEl.classList.remove('is-entering');
+    void questionEl.offsetWidth;
+    questionEl.classList.add('is-entering');
 
     item.a.forEach(function (opt, i) {
       var button = document.createElement('button');
       button.type = 'button';
       button.className = 'option';
+      button.style.setProperty('--i', i);
 
       var key = document.createElement('span');
       key.className = 'option-key';
@@ -167,8 +176,14 @@
 
       button.appendChild(key);
       button.appendChild(label);
+      // Show which answer was picked for a moment before moving on.
       button.addEventListener('click', function () {
-        choose(opt[1]);
+        if (locked) return;
+        locked = true;
+        button.classList.add('is-chosen');
+        window.setTimeout(function () {
+          choose(opt[1]);
+        }, reduceMotion ? 0 : 280);
       });
       optionsEl.appendChild(button);
     });

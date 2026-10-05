@@ -111,6 +111,7 @@
       var topic = topicById(video.topic);
       var li = document.createElement('li');
       li.className = 't-video';
+      li.style.setProperty('--i', i);
       li.innerHTML =
         '<div class="t-thumb ' + topic.tint + '"><svg class="icon" aria-hidden="true"><use href="#' + topic.icon + '"/></svg></div>' +
         '<div class="t-body">' +
@@ -132,15 +133,20 @@
       feedEl.appendChild(li);
     });
 
-    weightsEl.textContent = '';
-    TOPICS.forEach(function (topic) {
+    // The rows are made once and then updated, so the bars slide to their new size.
+    if (!weightsEl.children.length) {
+      TOPICS.forEach(function (topic) {
+        var li = document.createElement('li');
+        li.innerHTML = '<span></span><span class="w-track" aria-hidden="true"><span class="w-fill"></span></span><span class="w-val"></span>';
+        li.children[0].textContent = topic.name;
+        weightsEl.appendChild(li);
+      });
+    }
+    TOPICS.forEach(function (topic, i) {
       var pct = Math.round(share(topic.id) * 100);
-      var li = document.createElement('li');
-      li.innerHTML = '<span></span><span class="w-track" aria-hidden="true"><span class="w-fill"></span></span><span class="w-val"></span>';
-      li.children[0].textContent = topic.name;
+      var li = weightsEl.children[i];
       li.querySelector('.w-fill').style.width = pct + '%';
       li.querySelector('.w-val').textContent = pct + '%';
-      weightsEl.appendChild(li);
     });
 
     if (typeof focusIndex === 'number') {

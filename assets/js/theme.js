@@ -11,7 +11,7 @@
     if (window.localStorage.getItem('hooked-by-design-theme') === 'dark') {
       root.setAttribute('data-theme', 'dark');
       var meta = document.querySelector('meta[name="theme-color"]');
-      if (meta) meta.setAttribute('content', '#161412');
+      if (meta) meta.setAttribute('content', '#121316');
     }
   } catch (e) {
     /* Storage blocked: stay on the light theme. */

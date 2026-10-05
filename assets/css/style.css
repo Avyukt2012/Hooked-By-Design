@@ -24,68 +24,69 @@
 
 /* ---------- Design tokens ---------- */
 /* All the colours live here. Change one value and it changes everywhere.
-   No gradients, no glows: flat colour on warm paper, one red accent. */
+   The look: light paper, thin ink outlines, lime and indigo, and small solid
+   offset shadows. No gradients or glows. */
 
 :root {
-  /* Backgrounds: warm paper, like a printed page */
-  --paper: #f6f2ea;
-  --paper-2: #efe9df;
-  --card: #fffdf8;
-  --sunk: #efe9df;
+  /* Backgrounds */
+  --paper: #f5f6f1;
+  --paper-2: #eceee6;
+  --card: #ffffff;
+  --sunk: #eceee6;
 
   /* Text */
-  --ink: #1a1714;
-  --ink-2: #5d564c;
+  --ink: #16171b;
+  --ink-2: #4b4f59;
 
-  /* Lines */
-  --line: #e3dbcd;
-  --line-2: #d2c8b7;
-  --control: #8c8477;
+  /* Lines: thin ink outlines are part of the look */
+  --line: #16171b;
+  --line-2: #16171b;
+  --hair: #cfd2c6;
+  --control: #16171b;
 
-  /* Accent: notification red, the most famous hook of all */
-  --brand: #c4321c;
-  --dot: #d93a22;
-  --on-dot: #fffdf8;
-  --on-brand: #fffdf8;
-  --brand-soft: #f2ebe0;
-  --note-line: #e3dbcd;
+  /* Indigo: links, data and the main accent */
+  --brand: #3b37e6;
+  --on-brand: #ffffff;
+  --brand-soft: #e3e2ff;
+  --note-line: #3b37e6;
 
-  /* Highlighter yellow, for marking things up */
-  --mark: #ffd84a;
-  --mark-soft: #fbf0c4;
-  --on-mark: #1a1714;
-  --reveal-line: #ecdc94;
-  --hl-band: #ffd84a;
+  /* Lime: the Hooked by Design colour, for highlights and buttons */
+  --mark: #d6f34a;
+  --mark-soft: #eef8c5;
+  --on-mark: #16171b;
+  --reveal-line: #16171b;
 
-  --rose: #a8271a;
-  --rose-soft: #fbe4dd;
-  --heart: #d93a22;
-  --grey: #c4bcae;
-  --bar: #a39a8c;
-  --focus: #c4321c;
+  --rose: #3b37e6;
+  --rose-soft: #e3e2ff;
+  --heart: #3b37e6;
+  --grey: #9ea2ac;
+  --dot-off: #c9ccc1;
+  --bar: #3b37e6;
+  --focus: #3b37e6;
+
+  /* Offset shadows: small and solid, never blurry */
+  --offset: #16171b;
+  --offset-card: #3b37e6;
 
   /* Mock-up palette: our own colours, not the apps' brand colours */
-  --m1: #dcd6ee;
-  --m2: #cfe5d3;
-  --m3: #f5d3bd;
-  --m4: #cde1ee;
-  --m5: #f3e6a6;
-  --m6: #f4d0d2;
-  --mock-line: rgb(26 23 20 / 0.2);
-  --mock-ink: #2b2723;
-  --skeleton: #e6dfd2;
-
-  /* Only things that float over the app drawings get a shadow */
-  --shadow-pop: 0 8px 20px -10px rgb(26 23 20 / 0.45);
+  --m1: #cfcbff;
+  --m2: #bfe9cf;
+  --m3: #ffd3b8;
+  --m4: #c2e0ff;
+  --m5: #e6f6a0;
+  --m6: #ffcadd;
+  --mock-line: #16171b;
+  --mock-ink: #16171b;
+  --skeleton: #cfd2c6;
 
   /* The tick inside a checked box */
-  --check-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fffdf8' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E");
+  --check-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E");
 
   /* Shape */
   --r-sm: 8px;
-  --r: 10px;
-  --r-lg: 14px;
-  --r-xl: 18px;
+  --r: 14px;
+  --r-lg: 22px;
+  --r-xl: 28px;
 
   /* Type */
   --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
@@ -99,51 +100,51 @@
 }
 
 :root[data-theme="dark"] {
-  --paper: #161412;
-  --paper-2: #1b1916;
-  --card: #1f1c19;
-  --sunk: #12100e;
+  --paper: #121316;
+  --paper-2: #17181c;
+  --card: #1d1f24;
+  --sunk: #0f1013;
 
-  --ink: #f3ede3;
-  --ink-2: #b8afa2;
+  --ink: #eef0e8;
+  --ink-2: #b7bac3;
 
-  --line: #302b26;
-  --line-2: #433c35;
-  --control: #8e8579;
+  --line: #8b8f99;
+  --line-2: #8b8f99;
+  --hair: #353841;
+  --control: #8b8f99;
 
-  --brand: #ff7b63;
-  --dot: #d93a22;
-  --on-dot: #fffdf8;
-  --on-brand: #161412;
-  --brand-soft: #24201c;
-  --note-line: #302b26;
+  --brand: #9491ff;
+  --on-brand: #121316;
+  --brand-soft: #282752;
+  --note-line: #9491ff;
 
-  --mark: #ffd84a;
-  --mark-soft: #2e2810;
-  --on-mark: #1a1714;
-  --reveal-line: #57491a;
-  --hl-band: rgb(255 216 74 / 0.35);
+  --mark: #d6f34a;
+  --mark-soft: #2c3312;
+  --on-mark: #16171b;
+  --reveal-line: #8b8f99;
 
-  --rose: #ff8f80;
-  --rose-soft: #3a1f19;
-  --heart: #ff6a55;
-  --grey: #5a534b;
-  --bar: #7a7166;
-  --focus: #ff7b63;
+  --rose: #c3c1ff;
+  --rose-soft: #282752;
+  --heart: #9491ff;
+  --grey: #70747e;
+  --dot-off: #4a4e58;
+  --bar: #9491ff;
+  --focus: #c3c1ff;
 
-  --m1: #3d3852;
-  --m2: #2d4733;
-  --m3: #5c3b28;
-  --m4: #263f50;
-  --m5: #534a1c;
-  --m6: #57303a;
-  --mock-line: rgb(255 255 255 / 0.18);
-  --mock-ink: #ddd5c8;
-  --skeleton: #36302a;
+  --offset: #d6f34a;
+  --offset-card: #4b47d6;
 
-  --shadow-pop: 0 8px 20px -10px rgb(0 0 0 / 0.8);
+  --m1: #4c4899;
+  --m2: #2d6a48;
+  --m3: #8c4b2b;
+  --m4: #2b5987;
+  --m5: #5d6c1a;
+  --m6: #873759;
+  --mock-line: #8b8f99;
+  --mock-ink: #eef0e8;
+  --skeleton: #353841;
 
-  --check-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23161412' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E");
+  --check-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23121316' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E");
 
   color-scheme: dark;
 }
@@ -309,10 +310,11 @@ button {
   left: 12px;
   top: -120px;
   z-index: 100;
-  background: var(--brand);
-  color: var(--on-brand);
+  background: var(--mark);
+  color: var(--on-mark);
   padding: 12px 18px;
-  border-radius: 999px;
+  border: 1.5px solid var(--ink);
+  border-radius: var(--r-sm);
   font-weight: 700;
   text-decoration: none;
 }
@@ -352,19 +354,19 @@ button {
   font-family: var(--body);
   font-size: 0.8125rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
-  color: var(--brand);
+  color: var(--ink-2);
 }
 
 .hl {
   background-color: transparent;
-  background-image: linear-gradient(transparent 34%, var(--hl-band) 34%, var(--hl-band) 90%, transparent 90%);
+  background-image: linear-gradient(var(--mark), var(--mark));
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  color: inherit;
-  padding: 0 0.08em;
-  margin: 0 -0.04em;
+  color: var(--on-mark);
+  padding: 0 0.12em;
+  border-radius: 6px;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
 }
@@ -387,13 +389,12 @@ main {
   top: 0;
   z-index: 40;
   background: var(--paper);
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.3s ease;
+  border-bottom: 1.5px solid var(--line);
   view-transition-name: site-header;
 }
 
 .site-header.is-scrolled {
-  border-bottom-color: var(--line);
+  background: var(--paper);
 }
 
 /* Without JavaScript the full menu is always open, so the header stays put. */
@@ -426,11 +427,12 @@ main {
 }
 
 .brand-mark {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: var(--dot);
-  color: var(--on-dot);
+  width: 38px;
+  height: 38px;
+  border: 1.5px solid var(--ink);
+  border-radius: 11px;
+  background: var(--mark);
+  color: var(--on-mark);
   display: grid;
   place-items: center;
   transition: transform 0.45s var(--ease-spring);
@@ -456,7 +458,7 @@ main {
   width: 44px;
   height: 44px;
   padding: 0;
-  border: 1px solid var(--line-2);
+  border: 1.5px solid var(--line);
   border-radius: 50%;
   background: var(--card);
   color: var(--ink);
@@ -499,7 +501,7 @@ main {
   gap: 8px;
   min-height: 44px;
   padding: 8px 16px 8px 12px;
-  border: 1px solid var(--line-2);
+  border: 1.5px solid var(--line);
   border-radius: 999px;
   background: var(--card);
   color: var(--ink);
@@ -513,9 +515,9 @@ main {
 }
 
 .menu-button[aria-expanded="true"] {
-  background: var(--ink);
+  background: var(--mark);
   border-color: var(--ink);
-  color: var(--paper);
+  color: var(--on-mark);
 }
 
 .no-js .menu-button {
@@ -573,7 +575,7 @@ main {
   gap: 12px;
   min-height: 54px;
   padding: 10px 16px;
-  border: 1px solid var(--line);
+  border: 1.5px solid var(--line);
   border-radius: var(--r);
   background: var(--card);
   color: var(--ink);
@@ -584,19 +586,20 @@ main {
 }
 
 .site-nav a:hover {
-  border-color: var(--line-2);
-  background: var(--sunk);
+  background: var(--mark);
+  color: var(--on-mark);
 }
 
 .site-nav a[aria-current="page"] {
-  border-color: var(--ink);
-  box-shadow: inset 4px 0 0 var(--dot);
+  background: var(--ink);
+  color: var(--paper);
 }
 
 .nav-hint {
   font-weight: 400;
   font-size: 0.9rem;
-  color: var(--ink-2);
+  color: inherit;
+  opacity: 0.8;
   text-align: right;
 }
 
@@ -643,39 +646,24 @@ main {
     color: var(--ink-2);
     font-size: 0.975rem;
     font-weight: 650;
-    border-radius: var(--r-sm);
+    border-radius: 999px;
   }
 
   .site-nav a:hover {
-    border-color: transparent;
-    background: var(--sunk);
+    border-color: var(--ink);
+    background: transparent;
     color: var(--ink);
   }
 
   .site-nav a[aria-current="page"] {
-    background: transparent;
-    border-color: transparent;
-    box-shadow: none;
-    color: var(--ink);
+    background: var(--mark);
+    border-color: var(--ink);
+    color: var(--on-mark);
     font-weight: 700;
   }
 
   .nav-hint {
     display: none;
-  }
-
-  /* The current page gets a little red notification dot */
-  .site-nav a[aria-current="page"]::before {
-    content: "";
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: var(--dot);
-  }
-
-  .site-nav a {
-    justify-content: flex-start;
-    gap: 7px;
   }
 }
 
@@ -689,9 +677,10 @@ main {
   min-height: 50px;
   padding: 12px 24px;
   border: 1.5px solid var(--ink);
-  border-radius: var(--r);
+  border-radius: 12px;
   background: var(--card);
   color: var(--ink);
+  box-shadow: 3px 3px 0 var(--offset);
   font-family: var(--body);
   font-weight: 700;
   font-size: 1.0625rem;
@@ -704,12 +693,14 @@ main {
 }
 
 .btn:hover {
-  background: var(--sunk);
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 var(--offset);
   text-decoration: none;
 }
 
 .btn:active {
-  transform: scale(0.97);
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--offset);
   transition-duration: 0.08s;
 }
 
@@ -719,26 +710,21 @@ main {
 }
 
 .btn-primary {
-  background: var(--ink);
-  color: var(--paper);
-  border-color: var(--ink);
+  background: var(--mark);
+  color: var(--on-mark);
 }
 
 .btn-primary:hover {
-  background: var(--dot);
-  border-color: var(--dot);
-  color: var(--on-dot);
+  background: var(--mark);
 }
 
 .btn-blue {
-  background: var(--dot);
-  color: var(--on-dot);
-  border-color: var(--dot);
+  background: var(--brand);
+  color: var(--on-brand);
 }
 
 .btn-blue:hover {
   background: var(--brand);
-  border-color: var(--brand);
 }
 
 .btn-small {
@@ -753,9 +739,7 @@ main {
   opacity: 0.45;
   cursor: not-allowed;
   transform: none;
-  background: var(--card);
-  border-color: var(--ink);
-  color: var(--ink);
+  box-shadow: none;
 }
 
 .btn-row {
@@ -799,20 +783,21 @@ main {
   gap: 8px;
   min-height: 38px;
   padding: 4px 14px 4px 5px;
-  border: 1px solid var(--line-2);
+  border: 1.5px solid var(--ink);
   border-radius: 999px;
-  background: var(--card);
+  background: var(--brand-soft);
   color: var(--ink);
   font-weight: 700;
   font-size: 0.95rem;
   text-decoration: none;
   line-height: 1.2;
-  transition: transform 0.25s var(--ease-out), background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.25s ease;
+  transition: transform 0.25s var(--ease-out), background-color 0.2s ease;
 }
 
 a.chip:hover {
   transform: translateY(-2px);
-  border-color: var(--ink);
+  background: var(--mark);
+  color: var(--on-mark);
 }
 
 .chip-num {
@@ -822,17 +807,16 @@ a.chip:hover {
   height: 28px;
   padding: 0 5px;
   border-radius: 999px;
-  background: var(--sunk);
-  color: var(--brand);
+  background: var(--ink);
+  color: var(--paper);
   font-family: var(--display);
   font-size: 0.8rem;
   font-weight: 800;
-  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 a.chip:hover .chip-num {
-  background: var(--dot);
-  color: var(--on-dot);
+  background: var(--ink);
+  color: var(--paper);
 }
 
 /* ---------- Layout blocks ---------- */
@@ -843,7 +827,7 @@ a.chip:hover .chip-num {
 
 .page-hero {
   padding: clamp(36px, 6vw, 72px) 0 clamp(36px, 5vw, 60px);
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1.5px solid var(--line);
 }
 
 .page-hero h1 {
@@ -857,7 +841,7 @@ a.chip:hover .chip-num {
 }
 
 .section + .section {
-  border-top: 1px solid var(--line);
+  border-top: 1.5px solid var(--line);
 }
 
 .section-head {
@@ -874,9 +858,21 @@ a.chip:hover .chip-num {
 
 .card {
   background: var(--card);
-  border: 1px solid var(--line);
+  border: 1.5px solid var(--line);
   border-radius: var(--r-lg);
   padding: clamp(20px, 2.6vw, 28px);
+}
+
+/* The signature offset shadow, on the cards that matter most */
+.card-pop,
+.control,
+.phone,
+.player-wrap,
+.trainer-card,
+.progress-card,
+.us-callout,
+.feedback-callout {
+  box-shadow: 5px 5px 0 var(--offset-card);
 }
 
 .grid {
@@ -886,10 +882,10 @@ a.chip:hover .chip-num {
 }
 
 .note {
-  border-left: 3px solid var(--brand);
-  border-radius: 0 var(--r) var(--r) 0;
+  border: 1.5px dashed var(--brand);
+  border-radius: var(--r);
   padding: 14px 18px;
-  background: var(--sunk);
+  background: var(--brand-soft);
 }
 
 .note-label {
@@ -903,7 +899,7 @@ a.chip:hover .chip-num {
 }
 
 .callout {
-  border: 1px solid var(--reveal-line);
+  border: 1.5px solid var(--ink);
   border-radius: var(--r-xl);
   padding: clamp(22px, 3.2vw, 36px);
   background: var(--mark-soft);
@@ -970,7 +966,6 @@ a.chip:hover .chip-num {
   font-size: 1.6rem;
   letter-spacing: -0.02em;
   white-space: nowrap;
-  color: var(--brand);
 }
 
 .dots {
@@ -986,7 +981,7 @@ a.chip:hover .chip-num {
 .dot {
   aspect-ratio: 1;
   border-radius: 50%;
-  border: 1.5px solid var(--grey);
+  border: 1.5px solid var(--dot-off);
   background: transparent;
 }
 
@@ -999,7 +994,7 @@ a.chip:hover .chip-num {
   font-size: 0.95rem;
   color: var(--ink-2);
   padding-top: 16px;
-  border-top: 1px solid var(--line);
+  border-top: 1.5px solid var(--line);
 }
 
 /* ---------- Home: quiz ---------- */
@@ -1037,11 +1032,8 @@ a.chip:hover .chip-num {
 }
 
 .quiz-progress {
-  font-weight: 800;
-  font-size: 0.8125rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--brand);
+  font-weight: 700;
+  color: var(--ink-2);
   margin-bottom: 12px;
 }
 
@@ -1066,7 +1058,7 @@ a.chip:hover .chip-num {
   width: 100%;
   min-height: 60px;
   padding: 12px 16px;
-  border: 1px solid var(--line-2);
+  border: 1.5px solid var(--line);
   border-radius: 16px;
   background: var(--card);
   color: var(--ink);
@@ -1079,15 +1071,15 @@ a.chip:hover .chip-num {
 }
 
 .option:hover {
-  border-color: var(--ink);
-  background: var(--sunk);
+  background: var(--mark);
+  color: var(--on-mark);
   transform: translateX(3px);
 }
 
 .option.is-chosen {
-  border-color: var(--ink);
-  background: var(--mark-soft);
-  box-shadow: inset 0 0 0 1px var(--ink);
+  background: var(--mark);
+  color: var(--on-mark);
+  box-shadow: 3px 3px 0 var(--offset);
 }
 
 .option-key {
@@ -1096,19 +1088,17 @@ a.chip:hover .chip-num {
   width: 32px;
   height: 32px;
   flex: none;
-  border-radius: 10px;
-  background: var(--sunk);
-  color: var(--ink-2);
+  border: 1.5px solid currentColor;
+  border-radius: 9px;
   font-family: var(--display);
   font-weight: 800;
   font-size: 0.95rem;
-  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .option:hover .option-key,
 .option.is-chosen .option-key {
-  background: var(--dot);
-  color: var(--on-dot);
+  background: var(--card);
+  color: var(--ink);
 }
 
 .quiz-result {
@@ -1118,7 +1108,6 @@ a.chip:hover .chip-num {
 
 .result-title {
   font-size: clamp(2rem, 7vw, 3rem);
-  color: var(--brand);
 }
 
 
@@ -1155,7 +1144,7 @@ a.chip:hover .chip-num {
   gap: 4px 16px;
   height: 100%;
   padding: 20px;
-  border: 1px solid var(--line);
+  border: 1.5px solid var(--line);
   border-radius: var(--r-lg);
   background: var(--card);
   color: var(--ink);
@@ -1164,17 +1153,21 @@ a.chip:hover .chip-num {
 }
 
 .route:hover {
-  border-color: var(--ink);
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 var(--offset);
   text-decoration: none;
 }
 
 .route-icon {
   grid-row: span 2;
-  width: 44px;
-  height: 44px;
+  width: 52px;
+  height: 52px;
+  border: 1.5px solid var(--ink);
+  border-radius: 14px;
   display: grid;
   place-items: center;
-  color: var(--brand);
+  background: var(--mark);
+  color: var(--on-mark);
   transition: transform 0.45s var(--ease-spring);
 }
 
@@ -1220,19 +1213,16 @@ a.chip:hover .chip-num {
 
 .promise-list li {
   display: flex;
-  gap: 12px;
-  align-items: center;
-  padding: 14px 16px;
-  border: 1px solid var(--line);
-  border-radius: var(--r);
-  background: var(--card);
+  gap: 10px;
+  align-items: flex-start;
   font-weight: 700;
-  line-height: 1.35;
+  line-height: 1.4;
 }
 
 .promise-list .icon {
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
+  margin-top: 1px;
   color: var(--brand);
   stroke-width: 2.6;
 }
@@ -1272,14 +1262,18 @@ a.chip:hover .chip-num {
   font-size: 2.75rem;
   line-height: 1;
   letter-spacing: -0.04em;
-  color: var(--brand);
 }
 
 
 .hook-badge {
+  width: 48px;
+  height: 48px;
+  border: 1.5px solid var(--ink);
+  border-radius: 14px;
   display: grid;
   place-items: center;
-  color: var(--brand);
+  background: var(--mark);
+  color: var(--on-mark);
   margin-left: auto;
 }
 
@@ -1296,7 +1290,7 @@ a.chip:hover .chip-num {
   display: grid;
   gap: 12px;
   padding-top: 16px;
-  border-top: 1px dashed var(--line-2);
+  border-top: 1.5px dashed var(--hair);
 }
 
 .hook-meta dt {
@@ -1340,7 +1334,7 @@ a.chip:hover .chip-num {
 
 .loop li {
   position: relative;
-  border: 1px solid var(--line);
+  border: 1.5px solid var(--line);
   border-radius: var(--r-lg);
   padding: 16px 18px;
   background: var(--card);
@@ -1387,7 +1381,7 @@ a.chip:hover .chip-num {
 /* ---------- Demos ---------- */
 
 .demo {
-  border: 1px solid var(--line);
+  border: 1.5px solid var(--line);
   border-radius: var(--r-xl);
   background: var(--card);
   padding: clamp(20px, 3vw, 32px);
@@ -1466,7 +1460,7 @@ a.chip:hover .chip-num {
 }
 
 .stat {
-  border: 1px solid var(--line);
+  border: 1.5px solid var(--line);
   border-radius: var(--r);
   padding: 10px 16px;
   background: var(--sunk);
@@ -1506,7 +1500,7 @@ a.chip:hover .chip-num {
 .reveal {
   margin-top: 24px;
   padding: clamp(18px, 2.4vw, 26px);
-  border: 1px solid var(--reveal-line);
+  border: 1.5px solid var(--ink);
   border-radius: var(--r-lg);
   background: var(--mark-soft);
   color: var(--ink);
@@ -1550,7 +1544,7 @@ a.chip:hover .chip-num {
   justify-content: space-between;
   gap: 8px;
   padding: 10px 14px;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1.5px solid var(--line);
   background: var(--card);
   font-size: 0.85rem;
   font-weight: 700;
@@ -1581,7 +1575,7 @@ a.chip:hover .chip-num {
 
 .f-dock {
   padding: 10px;
-  border-top: 1px solid var(--line);
+  border-top: 1.5px solid var(--line);
   background: var(--card);
   display: flex;
   justify-content: center;
@@ -1589,7 +1583,7 @@ a.chip:hover .chip-num {
 
 .f-post {
   background: var(--card);
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1.5px solid var(--line);
   padding-bottom: 10px;
 }
 
@@ -1636,7 +1630,7 @@ a.chip:hover .chip-num {
   padding: 26px 16px 22px;
   text-align: center;
   background: var(--card);
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1.5px solid var(--line);
 }
 
 .f-caughtup .tick {
@@ -1696,7 +1690,7 @@ a.chip:hover .chip-num {
   width: 100%;
   max-width: 520px;
   margin-inline: auto;
-  border: 1px solid var(--line);
+  border: 1.5px solid var(--line);
   border-radius: var(--r-lg);
   overflow: hidden;
   background: var(--card);
@@ -1832,7 +1826,7 @@ a.chip:hover .chip-num {
 }
 
 .ap-ring-fg {
-  stroke: #ffd84a;
+  stroke: #d6f34a;
   stroke-linecap: round;
   stroke-dasharray: 125.66;
   stroke-dashoffset: 0;
@@ -1876,8 +1870,8 @@ a.chip:hover .chip-num {
 }
 
 .ap-overlay .btn-primary {
-  background: #ffd84a;
-  border-color: #ffd84a;
+  background: #d6f34a;
+  border-color: #d6f34a;
   color: #1c1a33;
 }
 
@@ -1936,7 +1930,7 @@ a.chip:hover .chip-num {
   inset: 0;
   top: 48px;
   background: var(--paper);
-  border-top: 1px solid var(--line);
+  border-top: 1.5px solid var(--line);
   padding: 18px 14px;
   display: grid;
   align-content: start;
@@ -1956,7 +1950,7 @@ a.chip:hover .chip-num {
 
 .reel {
   aspect-ratio: 1;
-  border: 1px solid var(--line-2);
+  border: 1.5px solid var(--line);
   border-radius: 16px;
   background: var(--card);
   display: grid;
@@ -1970,12 +1964,11 @@ a.chip:hover .chip-num {
 
 .reel.is-win {
   background: var(--mark);
-  border-color: transparent;
   color: var(--on-mark);
 }
 
 .r-result {
-  border: 1px solid var(--line);
+  border: 1.5px solid var(--line);
   border-radius: var(--r);
   background: var(--card);
   padding: 12px 14px;
@@ -1999,12 +1992,16 @@ a.chip:hover .chip-num {
 }
 
 .r-result.is-jackpot {
-  background: var(--mark-soft);
-  border-color: var(--reveal-line);
+  background: var(--mark);
+  color: var(--on-mark);
+}
+
+.r-result.is-jackpot .r-result-kind {
+  color: var(--on-mark);
 }
 
 .r-ghost {
-  border: 1.5px dashed var(--line-2);
+  border: 1.5px dashed var(--hair);
   border-radius: var(--r);
   padding-bottom: 12px;
 }
@@ -2015,7 +2012,7 @@ a.chip:hover .chip-num {
 }
 
 .l-banner {
-  box-shadow: var(--shadow-pop);
+  box-shadow: 3px 3px 0 var(--offset);
   position: absolute;
   top: 10px;
   left: 10px;
@@ -2025,7 +2022,7 @@ a.chip:hover .chip-num {
   align-items: center;
   gap: 8px;
   padding: 10px 12px;
-  border: 1px solid var(--line);
+  border: 1.5px solid var(--line);
   border-radius: 14px;
   background: var(--card);
   font-weight: 700;
@@ -2131,8 +2128,8 @@ a.chip:hover .chip-num {
   height: 16px;
   margin-left: -8px;
   border-radius: 50%;
-  border: 2px solid var(--card);
-  background: var(--dot);
+  border: 1.5px solid var(--ink);
+  background: var(--brand);
 }
 
 .l-tick.away {
@@ -2171,7 +2168,7 @@ a.chip:hover .chip-num {
   gap: 2px 18px;
   align-items: baseline;
   padding: 18px 20px;
-  border: 1px solid var(--line);
+  border: 1.5px solid var(--line);
   border-radius: var(--r-lg);
   background: var(--card);
 }
@@ -2183,8 +2180,9 @@ a.chip:hover .chip-num {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: var(--dot);
-  color: var(--on-dot);
+  border: 1.5px solid var(--ink);
+  background: var(--mark);
+  color: var(--on-mark);
   display: grid;
   place-items: center;
   font-family: var(--display);
@@ -2226,21 +2224,22 @@ a.chip:hover .chip-num {
 }
 
 .verdict-hook {
-  background: var(--rose-soft);
-  color: var(--rose);
+  background: var(--brand);
+  color: var(--on-brand);
+  border: 1.5px solid var(--ink);
 }
 
 .verdict-tool {
-  background: var(--mark-soft);
-  border: 1px solid var(--reveal-line);
-  color: var(--ink);
+  background: var(--mark);
+  color: var(--on-mark);
+  border: 1.5px solid var(--ink);
 }
 
 /* ---------- Mock phone (shared by demos and app pages) ---------- */
 
 .phone {
   width: min(100%, 340px);
-  border: 1px solid var(--line-2);
+  border: 1.5px solid var(--line);
   border-radius: 44px;
   background: var(--card);
   padding: 10px;
@@ -2250,7 +2249,7 @@ a.chip:hover .chip-num {
 
 .screen {
   position: relative;
-  border: 1px solid var(--line);
+  border: 1.5px solid var(--line);
   border-radius: 34px;
   overflow: hidden;
   background: var(--paper);
@@ -2318,7 +2317,7 @@ a.chip:hover .chip-num {
 }
 
 .m-story.seen {
-  border-color: var(--line-2);
+  border-color: var(--hair);
 }
 
 .m-story:nth-child(2)::after { background: var(--m3); }
@@ -2418,7 +2417,7 @@ a.chip:hover .chip-num {
   align-items: center;
   padding: 10px 6px 14px;
   background: var(--card);
-  border-top: 1px solid var(--line);
+  border-top: 1.5px solid var(--line);
 }
 
 .m-tabbar .icon {
@@ -2533,7 +2532,7 @@ a.chip:hover .chip-num {
   align-items: center;
   gap: 6px;
   padding: 4px 10px;
-  border: 1px solid var(--line-2);
+  border: 1.5px solid var(--line);
   border-radius: 999px;
   background: var(--card);
   font-weight: 800;
@@ -2596,7 +2595,7 @@ a.chip:hover .chip-num {
 }
 
 .m-toast {
-  box-shadow: var(--shadow-pop);
+  box-shadow: 3px 3px 0 var(--offset);
   position: absolute;
   left: 10px;
   right: 10px;
@@ -2605,7 +2604,7 @@ a.chip:hover .chip-num {
   align-items: center;
   gap: 8px;
   padding: 8px 12px;
-  border: 1px solid var(--line);
+  border: 1.5px solid var(--line);
   border-radius: 14px;
   background: var(--card);
   font-weight: 800;
@@ -2662,7 +2661,7 @@ a.chip:hover .chip-num {
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--brand);
+  color: var(--ink-2);
   margin-bottom: 12px;
 }
 
@@ -2747,7 +2746,7 @@ a.chip:hover .chip-num {
   gap: 12px;
   min-height: 56px;
   padding: 10px 14px;
-  border: 1px solid var(--line);
+  border: 1.5px solid var(--line);
   border-radius: var(--r);
   background: var(--card);
   color: var(--ink);
@@ -2758,7 +2757,8 @@ a.chip:hover .chip-num {
 }
 
 .legend a:hover {
-  border-color: var(--ink);
+  background: var(--mark);
+  color: var(--on-mark);
   transform: translateX(3px);
 }
 
@@ -2900,16 +2900,17 @@ a.chip:hover .chip-num {
   font-weight: 800;
   font-size: 0.9rem;
   border: 1.5px solid var(--ink);
-  color: var(--ink);
+  background: var(--mark);
+  color: var(--on-mark);
 }
 
 .ui {
   font-weight: 700;
-  padding: 1px 7px;
-  border: 1px solid var(--line-2);
-  border-radius: 7px;
-  background: var(--sunk);
-  font-size: 0.92em;
+  padding: 0 6px;
+  border: 1.5px solid var(--ink);
+  border-radius: 6px;
+  background: var(--paper);
+  font-size: 0.95em;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
 }
@@ -2925,9 +2926,9 @@ a.chip:hover .chip-num {
   gap: 14px;
   align-items: flex-start;
   padding: 16px 18px;
-  border: 1px solid var(--line);
+  border: 1.5px solid var(--ink);
   border-radius: var(--r);
-  background: var(--card);
+  background: var(--paper);
 }
 
 .survey-tie .tie-num {
@@ -2936,7 +2937,6 @@ a.chip:hover .chip-num {
   font-size: 1.6rem;
   line-height: 1;
   white-space: nowrap;
-  color: var(--brand);
 }
 
 .us-callout {
@@ -2963,7 +2963,7 @@ a.chip:hover .chip-num {
   align-items: center;
   gap: 4px 14px;
   padding: 12px 16px;
-  border: 1px solid var(--line);
+  border: 1.5px solid var(--line);
   border-radius: var(--r);
   background: var(--card);
   color: var(--ink);
@@ -2994,7 +2994,7 @@ a.chip:hover .chip-num {
 
 .flow li {
   counter-increment: flow;
-  border: 1px solid var(--line);
+  border: 1.5px solid var(--line);
   border-radius: var(--r-lg);
   background: var(--card);
   padding: 18px;
@@ -3008,8 +3008,9 @@ a.chip:hover .chip-num {
   content: counter(flow);
   width: 36px;
   height: 36px;
+  border: 1.5px solid var(--ink);
   border-radius: 50%;
-  background: var(--ink);
+  background: var(--brand);
   color: var(--on-brand);
   display: grid;
   place-items: center;
@@ -3051,7 +3052,7 @@ a.chip:hover .chip-num {
 }
 
 .t-video {
-  border: 1px solid var(--line);
+  border: 1.5px solid var(--line);
   border-radius: var(--r);
   background: var(--paper);
   overflow: hidden;
@@ -3102,7 +3103,7 @@ a.chip:hover .chip-num {
 .t-btn {
   min-height: 44px;
   padding: 6px 8px;
-  border: 1px solid var(--line-2);
+  border: 1.5px solid var(--line);
   border-radius: 12px;
   background: var(--card);
   color: var(--ink);
@@ -3123,9 +3124,8 @@ a.chip:hover .chip-num {
 }
 
 .t-btn.watch {
-  background: var(--ink);
-  border-color: var(--ink);
-  color: var(--paper);
+  background: var(--mark);
+  color: var(--on-mark);
 }
 
 .weights {
@@ -3145,11 +3145,11 @@ a.chip:hover .chip-num {
 }
 
 .w-track {
-  height: 12px;
+  height: 14px;
+  border: 1.5px solid var(--ink);
   border-radius: 999px;
   overflow: hidden;
-  background: var(--sunk);
-  box-shadow: inset 0 0 0 1px var(--line);
+  background: var(--card);
 }
 
 .w-fill {
@@ -3173,7 +3173,7 @@ a.chip:hover .chip-num {
 .key-idea {
   margin-top: 24px;
   padding: 18px 20px;
-  border: 1px solid var(--reveal-line);
+  border: 1.5px solid var(--ink);
   border-radius: var(--r-lg);
   background: var(--mark-soft);
   color: var(--ink);
@@ -3260,16 +3260,17 @@ a.chip:hover .chip-num {
 }
 
 .key {
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   border-radius: 5px;
+  border: 1.5px solid var(--ink);
   display: inline-block;
 }
 
 .k-agree { background: var(--brand); }
 .k-neutral { background: var(--grey); }
-.k-disagree { background: var(--ink); }
-.k-other { background: var(--card); box-shadow: inset 0 0 0 1.5px var(--control); }
+.k-disagree { background: var(--mark); }
+.k-other { background: var(--card); }
 
 .units-row {
   display: grid;
@@ -3298,14 +3299,14 @@ a.chip:hover .chip-num {
 
 .unit {
   height: 24px;
-  border-radius: 5px;
+  border-radius: 4px;
+  border: 1.5px solid var(--ink);
   background: var(--card);
-  box-shadow: inset 0 0 0 1.5px var(--control);
 }
 
-.unit.agree { background: var(--brand); box-shadow: none; }
-.unit.neutral { background: var(--grey); box-shadow: none; }
-.unit.disagree { background: var(--ink); box-shadow: none; }
+.unit.agree { background: var(--brand); }
+.unit.neutral { background: var(--grey); }
+.unit.disagree { background: var(--mark); }
 
 .bars {
   list-style: none;
@@ -3332,23 +3333,23 @@ a.chip:hover .chip-num {
 }
 
 .bar-track {
-  height: 16px;
+  height: 20px;
+  border: 1.5px solid var(--ink);
   border-radius: 999px;
   overflow: hidden;
-  background: var(--sunk);
-  box-shadow: inset 0 0 0 1px var(--line);
+  background: var(--card);
 }
 
 .bar-fill {
   height: 100%;
   width: calc(var(--v) / var(--max) * 100%);
-  border-radius: 999px;
-  background: var(--bar);
+  background: var(--brand);
+  border-right: 1.5px solid var(--ink);
   transform-origin: left center;
 }
 
 .bar-row.top .bar-fill {
-  background: var(--brand);
+  background: var(--mark);
 }
 
 .big-stat {
@@ -3363,7 +3364,6 @@ a.chip:hover .chip-num {
   font-weight: 800;
   line-height: 0.95;
   letter-spacing: -0.03em;
-  color: var(--brand);
 }
 
 .big-stat .num {
@@ -3393,7 +3393,7 @@ a.chip:hover .chip-num {
   grid-template-columns: 52px 1fr;
   gap: 16px;
   align-items: start;
-  border: 1px solid var(--line);
+  border: 1.5px solid var(--line);
   border-radius: var(--r-lg);
   padding: 16px;
   background: var(--card);
@@ -3402,9 +3402,10 @@ a.chip:hover .chip-num {
 .asked .count {
   width: 52px;
   height: 52px;
-  border-radius: 16px;
-  background: var(--brand-soft);
-  color: var(--brand);
+  border: 1.5px solid var(--ink);
+  border-radius: 50%;
+  background: var(--mark);
+  color: var(--on-mark);
   display: grid;
   place-items: center;
   font-family: var(--display);
@@ -3440,17 +3441,16 @@ a.chip:hover .chip-num {
 }
 
 .progress {
-  height: 14px;
+  height: 20px;
+  border: 1.5px solid var(--ink);
   border-radius: 999px;
   overflow: hidden;
-  background: var(--sunk);
-  box-shadow: inset 0 0 0 1px var(--line);
+  background: var(--card);
 }
 
 .progress-fill {
   height: 100%;
   width: calc(var(--done, 0) / 7 * 100%);
-  border-radius: 999px;
   background: var(--brand);
   transition: width 0.6s var(--ease-out);
 }
@@ -3481,8 +3481,9 @@ a.chip:hover .chip-num {
   align-content: center;
   width: 60px;
   height: 60px;
-  border-radius: 18px;
-  background: var(--sunk);
+  border: 1.5px solid var(--ink);
+  border-radius: 16px;
+  background: var(--paper);
   font-family: var(--display);
   font-weight: 800;
   line-height: 1;
@@ -3508,8 +3509,7 @@ a.chip:hover .chip-num {
 }
 
 .day.is-done {
-  background: var(--mark-soft);
-  border-color: var(--reveal-line);
+  background: var(--brand-soft);
 }
 
 .day.is-done .day-num {
@@ -3527,7 +3527,7 @@ a.chip:hover .chip-num {
   gap: 12px;
   min-height: 48px;
   padding: 8px 18px 8px 12px;
-  border: 1px solid var(--line-2);
+  border: 1.5px solid var(--line);
   border-radius: 999px;
   background: var(--card);
   font-weight: 700;
@@ -3537,7 +3537,7 @@ a.chip:hover .chip-num {
 }
 
 .check:hover {
-  border-color: var(--control);
+  background: var(--sunk);
 }
 
 .check input {
@@ -3555,8 +3555,8 @@ a.chip:hover .chip-num {
 }
 
 .check input:checked {
-  background: var(--ink) var(--check-mark) center / 16px 16px no-repeat;
-  border-color: var(--ink);
+  background: var(--brand) var(--check-mark) center / 16px 16px no-repeat;
+  border-color: var(--brand);
 }
 
 .check input:focus-visible {
@@ -3564,8 +3564,8 @@ a.chip:hover .chip-num {
 }
 
 .check:has(input:checked) {
-  background: var(--mark-soft);
-  border-color: var(--reveal-line);
+  background: var(--mark);
+  color: var(--on-mark);
 }
 
 .check:has(input:focus-visible) {
@@ -3714,7 +3714,7 @@ a.chip:hover .chip-num {
   display: flex;
   align-items: center;
   gap: 14px;
-  border: 1px solid var(--line);
+  border: 1.5px solid var(--line);
   border-radius: var(--r-lg);
   padding: 14px 16px;
   background: var(--card);
@@ -3729,11 +3729,12 @@ a.chip:hover .chip-num {
   flex: none;
   width: 48px;
   height: 48px;
+  border: 1.5px solid var(--ink);
   border-radius: 50%;
   display: grid;
   place-items: center;
-  border: 1.5px solid var(--ink);
-  color: var(--ink);
+  background: var(--mark);
+  color: var(--on-mark);
   font-size: 1rem;
   font-weight: 800;
   letter-spacing: 0.02em;
@@ -3772,10 +3773,10 @@ a.chip:hover .chip-num {
   align-items: center;
   gap: 8px;
   padding: 6px 14px;
-  border: 1px solid var(--reveal-line);
+  border: 1.5px solid var(--ink);
   border-radius: 999px;
-  background: var(--mark-soft);
-  color: var(--ink);
+  background: var(--mark);
+  color: var(--on-mark);
   font-weight: 800;
 }
 
@@ -3811,11 +3812,13 @@ a.chip:hover .chip-num {
 .lost-mark {
   width: 84px;
   height: 84px;
-  border-radius: 50%;
+  border: 1.5px solid var(--ink);
+  border-radius: 24px;
   display: grid;
   place-items: center;
-  background: var(--dot);
-  color: var(--on-dot);
+  background: var(--mark);
+  color: var(--on-mark);
+  box-shadow: 4px 4px 0 var(--offset);
 }
 
 .lost-mark .icon {
@@ -3827,7 +3830,7 @@ a.chip:hover .chip-num {
 /* ---------- Footer ---------- */
 
 .site-footer {
-  border-top: 1px solid var(--line);
+  border-top: 1.5px solid var(--line);
   background: var(--paper-2);
   color: var(--ink);
   padding: clamp(44px, 6vw, 64px) 0 clamp(48px, 6vw, 72px);
@@ -3898,7 +3901,7 @@ a.chip:hover .chip-num {
   gap: 8px 24px;
   margin-top: 32px;
   padding-top: 20px;
-  border-top: 1px solid var(--line-2);
+  border-top: 1.5px solid var(--hair);
   font-size: 0.95rem;
   color: var(--ink-2);
 }

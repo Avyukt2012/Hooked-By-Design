@@ -3,20 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>About and sources — Hooked by Design</title>
-<meta name="description" content="Who made Hooked by Design, why we built it as our MYP 4 Service as Action project, our rules for the site, and every source we used.">
-<meta property="og:title" content="About Hooked by Design">
-<meta property="og:description" content="Who made Hooked by Design, why we built it as our MYP 4 Service as Action project, our rules for the site, and every source we used.">
+<title>Feedback — Hooked by Design</title>
+<meta name="description" content="Four quick, anonymous questions about Hooked by Design. Tell us what was useful and what we should fix.">
+<meta property="og:title" content="Feedback">
+<meta property="og:description" content="Four quick, anonymous questions about Hooked by Design. Tell us what was useful and what we should fix.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Hooked by Design">
 <meta name="twitter:card" content="summary_large_image">
-<meta property="og:url" content="https://hooked-by-design.vercel.app/about.html">
+<meta property="og:url" content="https://hooked-by-design.vercel.app/feedback.html">
 <meta property="og:image" content="https://hooked-by-design.vercel.app/assets/img/social-card.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Hooked by Design: 15 of 21 students say social media mostly harms people their age, but only 5 say it harms them.">
 <meta name="theme-color" content="#f5f6f1">
-<link rel="canonical" href="https://hooked-by-design.vercel.app/about.html">
+<link rel="canonical" href="https://hooked-by-design.vercel.app/feedback.html">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/bricolage-grotesque.woff2" as="font" type="font/woff2" crossorigin>
@@ -24,6 +24,7 @@
 <link rel="stylesheet" href="assets/css/style.css">
 <script src="assets/js/theme.js"></script>
 <script src="assets/js/site.js" defer></script>
+<script src="assets/js/feedback.js" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -102,7 +103,7 @@
         <li><a href="youtube.html">YouTube <span class="nav-hint">Settings and the algorithm</span></a></li>
         <li><a href="survey.html">Our Survey <span class="nav-hint">21 students, in charts</span></a></li>
         <li><a href="challenge.html">7-Day Challenge <span class="nav-hint">One change a day</span></a></li>
-        <li><a href="about.html" aria-current="page">About &amp; Sources <span class="nav-hint">Who we are, where facts come from</span></a></li>
+        <li><a href="about.html">About &amp; Sources <span class="nav-hint">Who we are, where facts come from</span></a></li>
       </ul>
     </nav>
   </div>
@@ -111,111 +112,67 @@
 
   <section class="page-hero">
     <div class="wrap">
-      <p class="eyebrow">About &amp; Sources</p>
-      <h1>Who made this, and why</h1>
-      <p class="lede">Hooked by Design is a Service as Action project by four MYP 4 students. We wanted the students at our school to see how the apps they use every day are designed — and to know where the off switches are.</p>
+      <p class="eyebrow">Feedback</p>
+      <h1>Tell us what you think</h1>
+      <p class="lede">Four quick questions. It’s anonymous: we don’t ask for your name, and we can’t see who you are.</p>
     </div>
   </section>
 
-  <section class="section" aria-labelledby="team-h">
+  <section class="section" aria-label="Feedback form">
     <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow">Who we are</p>
-        <h2 id="team-h">MYP 4A</h2>
-      </div>
-      <ul class="team">
-        <li><span class="avatar" aria-hidden="true">AA</span>Avyukt Aggarwal</li>
-        <li><span class="avatar" aria-hidden="true">NS</span>Neal Nikhil Suman</li>
-        <li><span class="avatar" aria-hidden="true">AS</span>Ashvathh Sinnha</li>
-        <li><span class="avatar" aria-hidden="true">AK</span>Atharva Kushwaha</li>
-      </ul>
-    </div>
-  </section>
+      <form class="card card-pop feedback-form" method="post" action="/api/feedback" data-feedback-form>
+        <fieldset class="q" data-q="role">
+          <legend>I’m a…</legend>
+          <div class="choices">
+            <label class="choice"><input type="radio" name="role" value="student" required><span>Student</span></label>
+            <label class="choice"><input type="radio" name="role" value="teacher"><span>Teacher</span></label>
+            <label class="choice"><input type="radio" name="role" value="other"><span>Other</span></label>
+          </div>
+          <p class="q-error" data-error></p>
+        </fieldset>
 
-  <section class="section" aria-labelledby="why-built-h">
-    <div class="wrap grid about-grid">
-      <div class="stack">
-        <h2 id="why-built-h" class="chart-title">Why we built it</h2>
-        <p>In our survey, 15 of 21 students said social media mostly harms people their age — but only 5 said it harms them. 16 of 21 knew how to turn off YouTube autoplay, yet only 2 of 21 had ever used a built-in time limit.</p>
-        <p>We didn’t want to tell anyone to quit. We wanted to make the design visible — the tricks, why they work, and where the switches are — so everyone can decide for themselves.</p>
-      </div>
-      <div class="stack">
-        <h2 class="chart-title">How we built it</h2>
-        <p>A plain website made with HTML, CSS and a little JavaScript, hosted free on Vercel. The app pictures are our own drawings, not real logos or screenshots. The demos are made up and run only in your browser.</p>
-        <p>We kept the scope to two apps, Instagram and YouTube, so we could go into detail on each one.</p>
-      </div>
-    </div>
-  </section>
+        <fieldset class="q" data-q="useful">
+          <legend>How useful was the site?</legend>
+          <div class="choices scale">
+            <label class="choice"><input type="radio" name="useful" value="1" required><span>1<span class="visually-hidden">, not useful</span></span></label>
+            <label class="choice"><input type="radio" name="useful" value="2"><span>2</span></label>
+            <label class="choice"><input type="radio" name="useful" value="3"><span>3</span></label>
+            <label class="choice"><input type="radio" name="useful" value="4"><span>4</span></label>
+            <label class="choice"><input type="radio" name="useful" value="5"><span>5<span class="visually-hidden">, very useful</span></span></label>
+          </div>
+          <p class="scale-ends" aria-hidden="true"><span>Not useful</span><span>Very useful</span></p>
+          <p class="q-error" data-error></p>
+        </fieldset>
 
-  <section class="section" aria-labelledby="rules-h">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow">Our rules</p>
-        <h2 id="rules-h">No dark patterns to fight dark patterns</h2>
-      </div>
-      <ul class="promise-list">
-        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>No pop-ups, guilt messages or fake urgency</li>
-        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>No tracking, analytics, ads or accounts</li>
-        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>The challenge saves only on your own device</li>
-        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Every demo can be skipped</li>
-        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>We used one progress bar — and we point it out</li>
-      </ul>
-    </div>
-  </section>
+        <fieldset class="q">
+          <legend>Will you change a setting because of it?</legend>
+          <div class="choices">
+            <label class="choice"><input type="radio" name="change" value="already"><span>Already did</span></label>
+            <label class="choice"><input type="radio" name="change" value="probably"><span>Probably</span></label>
+            <label class="choice"><input type="radio" name="change" value="no"><span>No</span></label>
+          </div>
+        </fieldset>
 
-  <section class="section" id="feedback" aria-labelledby="feedback-h">
-    <div class="wrap">
-      <div class="callout feedback-callout">
-        <h2 id="feedback-h" class="chart-title">Tell us what you think</h2>
-        <p>Was something useful? Out of date? Wrong? It’s four quick questions and it’s anonymous.</p>
+        <label class="q">
+          <span class="q-label">Anything we should add or fix? <span class="muted">(optional)</span></span>
+          <textarea name="comment" rows="4" maxlength="1000"></textarea>
+        </label>
+
+        <p class="hp" aria-hidden="true"><label>Leave this empty <input type="text" name="website" tabindex="-1" autocomplete="off"></label></p>
+
         <div class="btn-row">
-          <a class="btn btn-primary" href="feedback.html">Give feedback</a>
+          <button class="btn btn-primary" type="submit">Send feedback</button>
+          <p class="status" data-feedback-status role="status"></p>
         </div>
+        <p class="small muted">Please don’t write names or personal details. Only our project team can read the answers.</p>
+      </form>
+
+      <div class="card card-pop thanks" id="thanks" tabindex="-1">
+        <h2 class="chart-title">Thank you!</h2>
+        <p>Your feedback has been sent. It really helps.</p>
+        <p><a href="index.html">Back to the home page</a></p>
       </div>
-    </div>
-  </section>
-
-  <section class="section" id="sources" aria-labelledby="sources-h">
-    <div class="wrap prose">
-      <div class="section-head">
-        <p class="eyebrow">Sources</p>
-        <h2 id="sources-h">Where our facts come from</h2>
-        <p><span class="checked-date"><svg class="icon icon-sm" aria-hidden="true"><use href="#i-calendar"/></svg>Last checked: October 2026</span></p>
-        <p class="muted">Apps change their features and menus often. We checked every settings step against the apps’ help pages and recent how-to guides in October 2026. If something has moved, please tell us using the feedback form.</p>
-      </div>
-
-      <h3 class="sources-title">Research and data</h3>
-      <ol class="sources">
-        <li>Pew Research Center (10 July 2025). <a href="https://www.pewresearch.org/short-reads/2025/07/10/10-facts-about-teens-and-social-media/">10 facts about teens and social media</a>.</li>
-        <li>Pew Research Center (9 December 2025). <a href="https://www.pewresearch.org/internet/2025/12/09/teens-social-media-and-ai-chatbots-2025/">Teens, Social Media and AI Chatbots 2025</a>.</li>
-        <li>Montag, C., Lachmann, B., Herrlich, M. and Zweig, K. (2019). <a href="https://doi.org/10.3390/ijerph16142612">Addictive features of social media/messenger platforms and freemium games against the background of psychological and economic theories</a>. <cite>International Journal of Environmental Research and Public Health</cite>, 16(14), 2612.</li>
-        <li>Eyal, N. (2014). <cite>Hooked: How to Build Habit-Forming Products</cite>. The source of the Hook Model: trigger, action, variable reward, investment.</li>
-        <li>Sherman, L. E., Payton, A. A., Hernandez, L. M., Greenfield, P. M. and Dapretto, M. (2016). <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5387999/">The power of the like in adolescence: effects of peer influence on neural and behavioral responses to social media</a>. <cite>Psychological Science</cite>, 27(7), 1027–1035.</li>
-        <li>Schaffner, B. and others (2025). <a href="https://arxiv.org/abs/2412.16040">An experimental study of Netflix use and the effects of autoplay on watching behaviors</a>. CSCW 2025.</li>
-        <li>Davison, W. P. (1983). <a href="https://doi.org/10.1086/268763">The third-person effect in communication</a>. <cite>Public Opinion Quarterly</cite>, 47(1), 1–15.</li>
-        <li>Covington, P., Adams, J. and Sargin, E. (2016). <a href="https://doi.org/10.1145/2959100.2959190">Deep neural networks for YouTube recommendations</a>. RecSys 2016. (How YouTube’s engineers described shortlisting and ranking videos.)</li>
-      </ol>
-
-      <h3 class="sources-title">News and company announcements</h3>
-      <ol class="sources" start="9">
-        <li>Quartz (January 2018). <a href="https://qz.com/1178125/youtubes-recommendations-drive-70-of-what-we-watch">YouTube’s recommendations drive 70% of what we watch</a>.</li>
-        <li>Meta Newsroom (19 November 2024). <a href="https://about.fb.com/news/2024/11/introducing-recommendations-reset-instagram/">Reshape your Instagram with a recommendations reset</a>.</li>
-        <li>Meta Newsroom (11 February 2025). <a href="https://about.fb.com/news/2025/02/introducing-teen-accounts-in-india-on-instagram/">Introducing Teen Accounts in India on Instagram</a>.</li>
-        <li>Meta Newsroom (2023, updated). <a href="https://about.fb.com/news/2023/01/instagram-quiet-mode-manage-your-time-and-focus/">Instagram Sleep mode (Quiet mode): manage your time and focus</a>.</li>
-        <li>Meta Newsroom (26 August 2026). <a href="https://about.fb.com/news/2026/08/agreement-with-state-attorneys-general-supporting-teens/">Our agreement with bipartisan attorneys general</a>.</li>
-        <li>TechCrunch (10 December 2025). <a href="https://techcrunch.com/2025/12/10/instagrams-new-your-algorithm-tool-gives-you-more-control-over-the-reels-you-see/">Instagram’s new “Your Algorithm” tool gives you more control over the Reels you see</a>.</li>
-        <li>YouTube Official Blog (10 August 2021). <a href="https://blog.youtube/news-and-events/new-safety-and-digital-wellbeing-options-younger-people-youtube-and-youtube-kids/">New safety and digital wellbeing options for younger people on YouTube and YouTube Kids</a>.</li>
-        <li>YouTube Official Blog (18 June 2025). <a href="https://blog.youtube/news-and-events/neal-mohan-cannes-2025/">Neal Mohan at Cannes Lions 2025</a>.</li>
-        <li>9to5Google (15 April 2026). <a href="https://9to5google.com/2026/04/15/youtube-shorts-turn-off-zero-minute-timer-setting/">YouTube Shorts are a lot easier to ignore with this new setting</a>.</li>
-        <li>YouTube Help. <a href="https://support.google.com/youtube/answer/6342839">Manage your recommendations and search results</a>.</li>
-      </ol>
-
-      <h3 class="sources-title">Our own data</h3>
-      <ol class="sources" start="19">
-        <li>Hooked by Design student survey: 21 anonymous responses, 25 September 2026, MYP 1 to DP 2. <a href="survey.html">See the results</a>.</li>
-      </ol>
-
-      <p class="note" style="margin-top: 28px"><span class="note-label">Not affiliated</span>We’re not connected to Instagram, Meta, YouTube or Google. We use their names only to describe their features, and all the app pictures on this site are our own drawings.</p>
+      <p class="note send-error" id="send-error"><span class="note-label">Not sent</span>Sorry, your feedback couldn’t be sent. Please try again in a minute.</p>
     </div>
   </section>
 

@@ -17,6 +17,8 @@ It's a plain static site: HTML, CSS and a little JavaScript. No frameworks, no b
 | `survey.html` | Our survey results as charts |
 | `challenge.html` | The 7-day challenge checklist |
 | `about.html` | About us, our rules, the feedback link and all sources |
+| `feedback.html` | The four-question feedback form |
+| `admin.html` | Developer page: every feedback response, with a Download for Excel button (password needed) |
 | `404.html` | The “page not found” page |
 
 ```
@@ -29,8 +31,11 @@ assets/
   js/demos.js          the 4 Playbook demos
   js/algorithm.js      the "train a mini algorithm" toy on the YouTube page
   js/challenge.js      the 7-day checklist (saves with localStorage)
+  js/feedback.js       sends the feedback form
+  js/admin.js          the developer page: loads responses, Excel download, delete
   fonts/               Bricolage Grotesque + Atkinson Hyperlegible Next (free, SIL Open Font License)
   img/                 favicon, home-screen icon and the picture shown when someone shares a link
+api/feedback.js        the small server function that saves and lists feedback
 vercel.json            Vercel settings: security headers and font caching
 robots.txt, sitemap.xml  help search engines find every page
 ```
@@ -49,11 +54,26 @@ From then on, every change you push to the `main` branch goes live by itself, an
 
 To preview before uploading, just double-click `index.html` to open it in your browser. (The `404.html` page only works once the site is online.)
 
+## Feedback: switch it on (once, about 2 minutes)
+
+The feedback form saves answers in a small free database connected to the Vercel project. To switch it on:
+
+1. In Vercel, open the project and go to the **Storage** tab. Choose **Create Database** (or **Browse Marketplace**), pick **Upstash for Redis**, choose the **Free** plan, and connect it to this project. Vercel adds the database's address and key to the project for you.
+2. Go to **Settings → Environment Variables** and add `ADMIN_PASSWORD` with a password only your team knows.
+3. Go to **Deployments**, open the menu (⋯) on the latest one and choose **Redeploy**, so the site picks up the new settings.
+
+Then:
+
+- Students and teachers fill in the form at **/feedback.html** (it's also linked in every footer and on the About page).
+- Your team opens **/admin.html**, types the password, and sees every response, a short summary, and a **Download for Excel** button (a `.csv` file that opens in Excel or Google Sheets). Spam can be deleted there too.
+
+The form is anonymous: it doesn't ask for names, and the database doesn't store names, emails or IP addresses. To stop the same person sending too many responses, a scrambled code made from their connection is kept for one hour and then deleted. Up to 5,000 responses are kept.
+
 ## Before you share it
 
-- **Feedback form:** open `about.html`, search for `REPLACE`, and paste your real form link (for example a Google Form) into the `href`. Until you do, the About page says “The feedback form is coming soon” instead of showing a button that goes nowhere. Once the real link is in, the button appears by itself.
+- **Feedback:** switch it on as described above, then send a test response and check it appears on `/admin.html`.
 - **If the address ever changes** (for example a custom domain): search all files for `hooked-by-design.vercel.app` and replace it with the new address. It appears in the `og:url`, `og:image` and `canonical` lines of every page, and in `robots.txt` and `sitemap.xml`. These tell WhatsApp, search engines and other apps where the site and its preview picture live.
-- **Adding something from another website?** `vercel.json` tells browsers to block anything loaded from other websites (scripts, images, fonts, embeds). That keeps our “no requests to any other website” promise. If you ever embed something on purpose, such as a Google Form, add its address to the `Content-Security-Policy` line in `vercel.json`.
+- **Adding something from another website?** `vercel.json` tells browsers to block anything loaded from other websites (scripts, images, fonts, embeds). That keeps our “no requests to any other website” promise (the feedback form only talks to this site's own `/api/feedback`). If you ever embed something on purpose, such as a Google Form, add its address to the `Content-Security-Policy` line in `vercel.json`.
 
 ## Keeping it up to date
 
@@ -66,7 +86,7 @@ To edit any text, open the `.html` file in a text editor (VS Code, or GitHub's o
 
 ## Privacy
 
-There are no cookies, analytics or accounts. The only things stored are the 7-day challenge checklist (`localStorage`, key `hooked-by-design-challenge-v1`) and, if a visitor switches to dark mode, that choice (key `hooked-by-design-theme`). Both stay in the visitor's own browser and never leave their device. The "Clear my progress" button deletes the checklist, and switching back to light mode deletes the theme choice.
+There are no cookies, analytics or accounts. Feedback answers are sent only when someone presses **Send feedback**, and they go to the project's own database (see above). In the browser, the only things stored are the 7-day challenge checklist (`localStorage`, key `hooked-by-design-challenge-v1`) and, if a visitor switches to dark mode, that choice (key `hooked-by-design-theme`). Both stay in the visitor's own browser and never leave their device. The "Clear my progress" button deletes the checklist, and switching back to light mode deletes the theme choice.
 
 ## Accessibility notes
 

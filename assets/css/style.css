@@ -63,6 +63,7 @@
   --dot-off: #c9ccc1;
   --bar: #3b37e6;
   --focus: #3b37e6;
+  --error: #b3261e;
 
   /* Offset shadows: small and solid, never blurry */
   --offset: #16171b;
@@ -130,6 +131,7 @@
   --dot-off: #4a4e58;
   --bar: #9491ff;
   --focus: #c3c1ff;
+  --error: #ff8a80;
 
   --offset: #d6f34a;
   --offset-card: #4b47d6;
@@ -906,12 +908,8 @@ a.chip:hover .chip-num {
   color: var(--ink);
 }
 
-.callout a {
+.callout a:not(.btn) {
   color: var(--brand);
-}
-
-.callout .btn {
-  color: var(--ink);
 }
 
 /* ---------- Home: hero finding ---------- */
@@ -3780,19 +3778,284 @@ a.chip:hover .chip-num {
   font-weight: 800;
 }
 
-/* Until the real form link is pasted into about.html, the button hides itself and this note shows. */
-.feedback-soon {
-  display: none;
+/* ---------- Feedback form ---------- */
+
+.feedback-form {
+  display: grid;
+  gap: 28px;
+  max-width: 44rem;
+}
+
+.q {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.q legend,
+.q-label {
+  padding: 0;
+  margin-bottom: 10px;
+  font-family: var(--display);
+  font-weight: 720;
+  font-size: 1.3rem;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.q-label .muted {
+  font-family: var(--body);
+  font-weight: 400;
+  font-size: 1rem;
+  letter-spacing: 0;
+}
+
+.choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.choice {
+  position: relative;
+  display: inline-flex;
+}
+
+/* The real radio button stays for keyboards and screen readers; the pill is what you see */
+.choice input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.choice > span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 8px 18px;
+  border: 1.5px solid var(--ink);
+  border-radius: 999px;
+  background: var(--card);
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.choice:hover > span {
+  background: var(--sunk);
+}
+
+.choice input:checked + span {
+  background: var(--mark);
+  color: var(--on-mark);
+  box-shadow: 2px 2px 0 var(--offset);
+}
+
+.choice input:focus-visible + span {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.scale {
+  flex-wrap: nowrap;
+  max-width: 320px;
+}
+
+.scale .choice {
+  flex: 1;
+}
+
+.scale .choice > span {
+  width: 100%;
+  padding: 8px 0;
+  border-radius: 12px;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1.2rem;
+}
+
+.scale-ends {
+  display: flex;
+  justify-content: space-between;
+  max-width: 320px;
+  font-size: 0.85rem;
   font-weight: 700;
   color: var(--ink-2);
 }
 
-[data-feedback-link][href*="REPLACE"] {
+.q-error {
+  font-weight: 700;
+  color: var(--error);
+}
+
+.q-error:empty {
   display: none;
 }
 
-[data-feedback-link][href*="REPLACE"] + .feedback-soon {
+.has-error .choice > span {
+  border-color: var(--error);
+}
+
+.q textarea {
+  width: 100%;
+  min-height: 110px;
+  padding: 12px 14px;
+  border: 1.5px solid var(--ink);
+  border-radius: 12px;
+  background: var(--card);
+  color: var(--ink);
+  font: inherit;
+  resize: vertical;
+}
+
+/* A trap for spam bots: hidden from people */
+.hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.thanks,
+.send-error {
+  display: none;
+}
+
+.thanks:target,
+.thanks.is-shown {
+  display: grid;
+  gap: 12px;
+  max-width: 44rem;
+}
+
+.send-error:target {
   display: block;
+  max-width: 44rem;
+  margin-top: 20px;
+}
+
+.feedback-form:has(~ .thanks:target) {
+  display: none;
+}
+
+@media (forced-colors: active) {
+  .choice input:checked + span {
+    outline: 3px solid CanvasText;
+    outline-offset: 2px;
+  }
+}
+
+/* ---------- Developer page (admin.html) ---------- */
+
+.admin-login {
+  display: grid;
+  gap: 16px;
+  max-width: 26rem;
+}
+
+.admin-login .field input {
+  width: 100%;
+}
+
+.admin-results {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 20px;
+}
+
+.admin-stats {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(min(190px, 100%), 1fr));
+}
+
+.admin-stats li {
+  padding: 14px 16px;
+  border: 1.5px solid var(--ink);
+  border-radius: var(--r);
+  background: var(--card);
+  font-weight: 700;
+  color: var(--ink-2);
+}
+
+.admin-stats b {
+  display: block;
+  font-family: var(--display);
+  font-size: 1.9rem;
+  line-height: 1.15;
+  color: var(--ink);
+}
+
+/* position: relative keeps the hidden "Delete" heading inside the scrolling box */
+.table-wrap {
+  position: relative;
+  overflow-x: auto;
+  border: 1.5px solid var(--ink);
+  border-radius: var(--r);
+  background: var(--card);
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.98rem;
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--hair);
+  text-align: left;
+  vertical-align: top;
+}
+
+.admin-table th {
+  background: var(--sunk);
+  color: var(--ink-2);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.admin-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.admin-table td:first-child {
+  white-space: nowrap;
+}
+
+.admin-table .comment {
+  min-width: 16rem;
+  white-space: pre-wrap;
+}
+
+.admin-table .empty {
+  color: var(--ink-2);
+}
+
+.delete-btn {
+  min-height: 36px;
+  padding: 4px 12px;
+  border: 1.5px solid var(--ink);
+  border-radius: 8px;
+  background: var(--card);
+  color: var(--ink);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background: var(--sunk);
 }
 
 /* ---------- 404 page ---------- */

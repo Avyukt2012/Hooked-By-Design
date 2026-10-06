@@ -3951,6 +3951,135 @@ a.chip:hover .chip-num {
   }
 }
 
+/* The round feedback button in the bottom-right corner.
+   It's a plain link, so it works without JavaScript. On hover or keyboard
+   focus it opens up to show its label. It pings twice when it arrives and
+   then stays still: no endless animation. */
+.fab {
+  position: fixed;
+  right: calc(16px + env(safe-area-inset-right, 0px));
+  bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  z-index: 30;
+  display: inline-flex;
+  align-items: center;
+  height: 56px;
+  min-width: 56px;
+  padding: 0 15px;
+  border: 1.5px solid var(--ink);
+  border-radius: 999px;
+  background: var(--mark);
+  color: var(--on-mark);
+  box-shadow: 3px 3px 0 var(--ink);
+  font-weight: 700;
+  text-decoration: none;
+  view-transition-name: feedback-button;
+  transition: transform 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out);
+}
+
+.fab .icon {
+  width: 24px;
+  height: 24px;
+  flex: none;
+}
+
+.fab-label {
+  max-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  opacity: 0;
+  transition: max-width 0.35s var(--ease-out), opacity 0.2s ease, margin 0.35s var(--ease-out);
+}
+
+.fab:hover,
+.fab:focus-visible {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 var(--ink);
+  text-decoration: none;
+}
+
+.fab:hover .fab-label,
+.fab:focus-visible .fab-label {
+  max-width: 9em;
+  margin-left: 10px;
+  opacity: 1;
+}
+
+.fab:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--ink);
+}
+
+.fab::after {
+  content: "";
+  position: absolute;
+  inset: -1.5px;
+  border: 2px solid var(--ink);
+  border-radius: inherit;
+  opacity: 0;
+  pointer-events: none;
+}
+
+@keyframes fab-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.2) rotate(-45deg);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1.1) rotate(6deg);
+  }
+}
+
+@keyframes fab-wiggle {
+  20%,
+  60% {
+    transform: rotate(-12deg);
+  }
+  40%,
+  80% {
+    transform: rotate(12deg);
+  }
+}
+
+@keyframes fab-peek {
+  12%,
+  85% {
+    max-width: 9em;
+    margin-left: 10px;
+    opacity: 1;
+  }
+}
+
+/* On the home page (where people arrive) it pops in, pings twice and shows
+   its label for a moment. On other pages it just sits there quietly. */
+@media (prefers-reduced-motion: no-preference) {
+  body:has(.home-hero) .fab {
+    animation: fab-in 0.7s var(--ease-spring) 1.2s backwards;
+  }
+
+  body:has(.home-hero) .fab::after {
+    animation: ping 1.4s ease-out 2.1s 2;
+  }
+
+  body:has(.home-hero) .fab-label {
+    animation: fab-peek 3.4s var(--ease-out) 2.1s;
+  }
+
+  .fab:hover .icon {
+    animation: fab-wiggle 0.6s ease-in-out;
+  }
+}
+
+.theme-switching .fab {
+  view-transition-name: none;
+}
+
+@media print {
+  .fab {
+    display: none;
+  }
+}
+
 /* ---------- Developer page (admin.html) ---------- */
 
 .admin-login {
@@ -4096,7 +4225,8 @@ a.chip:hover .chip-num {
   border-top: 1.5px solid var(--line);
   background: var(--paper-2);
   color: var(--ink);
-  padding: clamp(44px, 6vw, 64px) 0 clamp(48px, 6vw, 72px);
+  /* Extra room at the bottom so the round feedback button never covers "Back to top" */
+  padding: clamp(44px, 6vw, 64px) 0 calc(clamp(48px, 6vw, 72px) + 56px);
 }
 
 .site-footer a {

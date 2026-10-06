@@ -64,7 +64,7 @@ The feedback form saves answers in a small free database connected to the Vercel
 
 Then:
 
-- Students and teachers fill in the form at **/feedback.html** (it's also linked in every footer and on the About page).
+- Students and teachers fill in the form at **/feedback.html**. They can reach it from the round **feedback button** in the bottom-right corner of every page (on the home page it pops in and shows its label once), from every footer, and from the About page.
 - Your team opens **/admin.html**, types the password, and sees every response, a short summary, and a **Download for Excel** button (a `.csv` file that opens in Excel or Google Sheets). Spam can be deleted there too.
 
 The form is anonymous: it doesn't ask for names, and the database doesn't store names, emails or IP addresses. To stop the same person sending too many responses, a scrambled code made from their connection is kept for one hour and then deleted. Up to 5,000 responses are kept.

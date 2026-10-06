@@ -24,6 +24,17 @@
   // We show our own messages instead of the browser's pop-up bubbles.
   form.noValidate = true;
 
+  // Sentence starters: tap one to begin the comment, then finish it in your own words.
+  var comment = form.elements.comment;
+  Array.prototype.forEach.call(form.querySelectorAll('[data-starter]'), function (starter) {
+    starter.addEventListener('click', function () {
+      var before = comment.value.replace(/\s+$/, '');
+      comment.value = (before ? before + '\n' : '') + starter.getAttribute('data-starter') + ' ';
+      comment.focus();
+      comment.setSelectionRange(comment.value.length, comment.value.length);
+    });
+  });
+
   function setError(name, message) {
     var group = form.querySelector('[data-q="' + name + '"]');
     group.classList.toggle('has-error', !!message);

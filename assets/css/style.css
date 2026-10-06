@@ -3901,6 +3901,44 @@ a.chip:hover .chip-num {
   border-color: var(--error);
 }
 
+.starters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.starter {
+  min-height: 38px;
+  padding: 6px 14px;
+  border: 1.5px solid var(--ink);
+  border-radius: 999px;
+  background: var(--brand-soft);
+  color: var(--ink);
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s var(--ease-out);
+}
+
+.starter:hover {
+  background: var(--mark);
+  color: var(--on-mark);
+  transform: translateY(-1px);
+}
+
+.starter:active {
+  transform: scale(0.96);
+}
+
+.no-js .starters {
+  display: none;
+}
+
+.q textarea::placeholder {
+  color: var(--ink-2);
+  opacity: 1;
+}
+
 .q textarea {
   width: 100%;
   min-height: 110px;

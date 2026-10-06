@@ -153,10 +153,16 @@
           </div>
         </fieldset>
 
-        <label class="q">
-          <span class="q-label">Anything we should add or fix? <span class="muted">(optional)</span></span>
-          <textarea name="comment" rows="4" maxlength="1000"></textarea>
-        </label>
+        <div class="q">
+          <label class="q-label" for="comment">Anything we should add or fix? <span class="muted">(optional)</span></label>
+          <div class="starters" role="group" aria-label="Ideas to start your comment">
+            <button class="starter" type="button" data-starter="I liked">I liked…</button>
+            <button class="starter" type="button" data-starter="It was confusing when">It was confusing when…</button>
+            <button class="starter" type="button" data-starter="You should add">You should add…</button>
+            <button class="starter" type="button" data-starter="One thing I’ll change is">One thing I’ll change is…</button>
+          </div>
+          <textarea id="comment" name="comment" rows="4" maxlength="1000" placeholder="For example: what you liked, what was confusing, or what we should add."></textarea>
+        </div>
 
         <p class="hp" aria-hidden="true"><label>Leave this empty <input type="text" name="website" tabindex="-1" autocomplete="off"></label></p>
 

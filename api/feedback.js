@@ -15,7 +15,6 @@ const crypto = require('crypto');
 const LIST_KEY = 'hbd:feedback';
 const MAX_ENTRIES = 5000;
 const MAX_TEXT = 1000;
-const SENDS_PER_HOUR = 8;
 const WRONG_PASSWORDS_PER_HOUR = 10;
 
 const CHOICES = {
@@ -57,8 +56,9 @@ async function redis(store, commands) {
   });
 }
 
-// Counts things per visitor per hour. Only a short hash of the address is
-// used, and it is deleted after an hour.
+// Counts wrong admin passwords per visitor per hour. Only a short hash of the
+// address is used, and it is deleted after an hour. (Sending feedback has no
+// limit: a whole school shares one connection.)
 function limitKey(request, kind) {
   const forwarded = String(request.headers['x-forwarded-for'] || '').split(',')[0].trim();
   const address = forwarded || request.headers['x-real-ip'] || (request.socket && request.socket.remoteAddress) || 'unknown';
@@ -70,10 +70,6 @@ function limitKey(request, kind) {
 async function count(store, key) {
   const [value] = await redis(store, [['INCR', key], ['EXPIRE', key, '3600']]);
   return value;
-}
-
-async function overLimit(store, request, kind, limit) {
-  return (await count(store, limitKey(request, kind))) > limit;
 }
 
 /* ---------- Helpers ---------- */
@@ -182,10 +178,6 @@ async function saveFeedback(store, request, response) {
 
   if (!entry.role || !entry.useful) {
     return reply(request, response, 400, { error: 'missing_answers', fields: ['role', 'useful'].filter(function (name) { return !entry[name]; }) });
-  }
-
-  if (await overLimit(store, request, 'send', SENDS_PER_HOUR)) {
-    return reply(request, response, 429, { error: 'too_many' });
   }
 
   await redis(store, [

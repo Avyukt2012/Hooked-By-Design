@@ -17,7 +17,6 @@
   };
 
   var PROBLEMS = {
-    too_many: 'You’ve sent a lot of feedback in the last hour. Thank you! Please try again later.',
     storage_not_connected: 'Feedback isn’t switched on yet. Please try again soon.'
   };
 

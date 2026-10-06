@@ -67,14 +67,34 @@
       return response.json().catch(function () {
         return {};
       }).then(function (body) {
-        if (!response.ok) throw new Error(body.error || 'failed');
+        if (!response.ok) {
+          var problem = new Error(body.error || 'failed');
+          problem.status = response.status;
+          throw problem;
+        }
       });
     }).then(function () {
       form.hidden = true;
       thanks.classList.add('is-shown');
       thanks.focus();
     }).catch(function (error) {
-      status.textContent = PROBLEMS[error.message] || 'Sorry, that didn’t send. Check your connection and try again.';
+      if (window.console) console.error('Feedback not sent:', error.status || '', error.message);
+
+      if (!error.status && !PROBLEMS[error.message]) {
+        // The browser couldn't reach the server (some school networks and
+        // extensions block this kind of request). Send it as a normal form
+        // instead: the server answers by opening the thank-you message.
+        status.textContent = 'Sending…';
+        form.submit();
+        return;
+      }
+
+      if (PROBLEMS[error.message]) {
+        status.textContent = PROBLEMS[error.message];
+      } else {
+        // The server answered with an error: show its code, so we can fix it.
+        status.textContent = 'Sorry, that didn’t send (error ' + error.status + (error.message !== 'failed' ? ', ' + error.message : '') + '). Please try again in a minute.';
+      }
       button.disabled = false;
     });
   });
